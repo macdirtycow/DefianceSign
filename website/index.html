@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapleSign — Veilige IPA-signer voor iPhone & iPad</title>
+  <meta name="description" content="Open-source ESign-alternatief. Signeer en installeer IPA-bestanden met je eigen Apple Developer-certificaat.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="badge">Open source · GDPR-vriendelijk · Geen telemetry</p>
+      <h1>MapleSign</h1>
+      <p class="lead">Veilige IPA-signer en installer voor iPhone en iPad. Gebruik je eigen certificaat — geen Chinese backend, geen gedeelde p12-bestanden.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/macdirtycow/MapleSign/releases/tag/beta">Download IPA</a>
+        <a class="btn" href="https://github.com/macdirtycow/MapleSign">GitHub</a>
+        <a class="btn" href="docs.html">Documentatie</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Waarom MapleSign?</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Veilig</h3>
+          <p>Certificaatwachtwoorden in iOS Keychain. Geen anti-revoke DNS of shady certificaten.</p>
+        </article>
+        <article class="card">
+          <h3>Open source</h3>
+          <p>Gebaseerd op Feather/Ksign (GPL-3.0). Volledig transparante code op GitHub.</p>
+        </article>
+        <article class="card">
+          <h3>Alles-in-één</h3>
+          <p>Signeren, installeren, bulk signing, dylib-injectie, AltStore-bronnen en file manager.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Snel starten</h2>
+      <ol class="steps">
+        <li>Installeer MapleSign eenmalig via <strong>Sideloadly</strong>, <strong>AltStore</strong> of <strong>SideStore</strong>.</li>
+        <li>Exporteer je <code>.p12</code> en <code>.mobileprovision</code> vanuit je Apple Developer-account.</li>
+        <li>Importeer beide in MapleSign → Instellingen → Certificaten.</li>
+        <li>Importeer een IPA, signeer en installeer op je device.</li>
+      </ol>
+      <p><a href="docs.html">Volledige handleiding →</a></p>
+    </section>
+
+    <section>
+      <h2>iOS-ondersteuning</h2>
+      <p>iOS 16+ · iPhone & iPad · Server- en idevice-installatiemethode</p>
+      <p class="status ok">Laatste build: beschikbaar via GitHub Releases (beta)</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>MapleSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat.</p>
+    <p><a href="https://github.com/macdirtycow/MapleSign">GitHub</a> · GPL-3.0 · EU-hosting aanbevolen</p>
+  </footer>
+</body>
+</html>

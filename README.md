@@ -32,7 +32,9 @@ Zie [scripts/export-p12-guide.md](scripts/export-p12-guide.md) voor een uitgebre
 
 ## Download
 
-Download de nieuwste `.ipa` van [GitHub Releases](https://github.com/maplesign/MapleSign/releases).
+Download de nieuwste `.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/MapleSign/releases/tag/beta).
+
+Website-bron staat in [`website/`](website/) — deploy naar [maplesign.net](https://maplesign.net).
 
 ## Bouwen
 

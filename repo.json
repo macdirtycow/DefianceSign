@@ -3,7 +3,7 @@
     "identifier": "net.maplesign.app-repo",
     "subtitle": "Veilige IPA-signer voor iPhone en iPad",
     "description": "AltStore-bron voor MapleSign — open-source ESign-alternatief",
-    "iconURL": "https://maplesign.net/icon.png",
+    "iconURL": "https://raw.githubusercontent.com/macdirtycow/MapleSign/main/MapleSign/Resources/AppIcons/kana_peek.png",
     "website": "https://maplesign.net",
     "tintColor": "C45C26",
     "apps": [
@@ -11,14 +11,14 @@
             "name": "MapleSign",
             "bundleIdentifier": "net.maplesign.app",
             "developerName": "MapleSign",
-            "iconURL": "https://maplesign.net/icon.png",
+            "iconURL": "https://raw.githubusercontent.com/macdirtycow/MapleSign/main/MapleSign/Resources/AppIcons/kana_peek.png",
             "localizedDescription": "Veilige, open-source IPA-signer voor iPhone en iPad. Gebruik je eigen Apple Developer-certificaat.",
             "subtitle": "Veilig ESign-alternatief",
             "tintColor": "C45C26",
             "category": "utilities",
             "versions": [
                 {
-                    "downloadURL": "https://github.com/maplesign/MapleSign/releases/latest/download/MapleSign.ipa",
+                    "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/beta/MapleSign.ipa",
                     "size": 14000000,
                     "version": "1.0.0",
                     "buildVersion": "1",

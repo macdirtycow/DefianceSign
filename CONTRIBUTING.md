@@ -35,7 +35,7 @@ Any contributions should follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
 - iOS 16.0
 1. Clone the repository
     ```sh
-    git clone https://github.com/nyasami/MapleSign --recursive
+    git clone https://github.com/macdirtycow/MapleSign --recursive
     ```
     - `Zsign` is a submodule, recursive is required.
 

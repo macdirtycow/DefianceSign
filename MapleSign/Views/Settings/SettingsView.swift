@@ -28,8 +28,8 @@ struct SettingsView: View {
     }
     
     
-	private let _githubUrl = "https://github.com/maplesign/MapleSign"
-	private let _websiteUrl = "https://maplesign.net"
+	private let _githubUrl = MapleSignConfig.githubRepo
+	private let _websiteUrl = MapleSignConfig.website
 	// MARK: Body
     var body: some View {
 		NBNavigationView(.localized("Settings")) {

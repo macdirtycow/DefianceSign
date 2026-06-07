@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapleSign Documentatie</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="subhero">
+    <div class="container">
+      <a href="index.html">← MapleSign</a>
+      <h1>Documentatie</h1>
+    </div>
+  </header>
+
+  <main class="container prose">
+    <section>
+      <h2>1. MapleSign installeren</h2>
+      <p>MapleSign kan zichzelf niet installeren. Download de <code>.ipa</code> van <a href="https://github.com/macdirtycow/MapleSign/releases/tag/beta">GitHub Releases</a> en gebruik:</p>
+      <ul>
+        <li><strong>Sideloadly</strong> (Mac/Windows + USB)</li>
+        <li><strong>SideStore</strong> / <strong>AltStore</strong> (met je Apple ID)</li>
+      </ul>
+      <p>Vertrouw daarna het profiel onder <em>Instellingen → Algemeen → VPN en apparaatbeheer</em>.</p>
+    </section>
+
+    <section>
+      <h2>2. Certificaat exporteren (Mac)</h2>
+      <ol>
+        <li>Ga naar <a href="https://developer.apple.com">developer.apple.com</a></li>
+        <li>Maak een <strong>iOS Development</strong> certificaat en provisioning profile</li>
+        <li>Exporteer <code>.p12</code> via Sleutelhangprogramma</li>
+        <li>Download het <code>.mobileprovision</code> bestand</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>3. IPA signeren & installeren</h2>
+      <ol>
+        <li>Importeer IPA via Bestanden-tab of Share Sheet</li>
+        <li>Ga naar Bibliotheek → selecteer app → Signeren</li>
+        <li>Kies je certificaat en opties (bundle ID, naam, dylibs)</li>
+        <li>Tik op Installeren</li>
+      </ol>
+      <p>Standaard gebruikt MapleSign de <strong>Server</strong>-methode (lokale HTTPS + itms-services). Geavanceerd: <strong>idevice</strong> met VPN + pairing file.</p>
+    </section>
+
+    <section>
+      <h2>4. Beveiliging</h2>
+      <ul>
+        <li>Geen ingebouwde gedeelde certificaten</li>
+        <li>Geen OCSP/DNS revoke-bypass</li>
+        <li>p12-wachtwoord alleen in iOS Keychain</li>
+        <li>Geen analytics of telemetry</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Functies (ESign-pariteit)</h2>
+      <ul>
+        <li>Bulk signen en installeren</li>
+        <li>Dylib/framework/deb injectie</li>
+        <li>AltStore repository-bronnen</li>
+        <li>File manager met unzip & plist editor</li>
+        <li>Achtergrond downloads</li>
+        <li>OCSP revoke-check op certificaten</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Website deployen (maplesign.net)</h2>
+      <p>Upload de <code>website/</code> map naar je EU-hosting (bijv. Hetzner, Cloudflare Pages). Voor de plist-proxy endpoint, zie <code>website/api/README.md</code>.</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p><a href="index.html">Terug naar home</a></p>
+  </footer>
+</body>
+</html>
