@@ -37,9 +37,17 @@ Download de nieuwste `.ipa` van [GitHub Releases](https://github.com/maplesign/M
 ```bash
 git clone https://github.com/maplesign/MapleSign --recursive
 cd MapleSign
-make MapleSign
-# Output: packages/MapleSign.ipa
+./scripts/build-release.sh
+# Output: packages/MapleSign.ipa (~13 MB)
 ```
+
+Of handmatig:
+
+```bash
+make MapleSign
+```
+
+De build maakt een **unsigned IPA** die je daarna via Sideloadly/AltStore installeert.
 
 ## Beveiliging
 
