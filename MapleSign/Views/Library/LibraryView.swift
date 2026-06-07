@@ -65,6 +65,10 @@ struct LibraryView: View {
     var body: some View {
 		NBNavigationView(.localized("Library")) {
 			VStack(spacing: 0) {
+				MapleSignBrandHeader(subtitle: .localized("Library"), compact: true)
+					.padding(.horizontal)
+					.padding(.top, 4)
+
 				Picker("", selection: $_selectedTab) {
 					Text(.localized("Downloaded Apps")).tag(0)
 					Text(.localized("Signed Apps")).tag(1)

@@ -18,7 +18,7 @@
             "category": "utilities",
             "versions": [
                 {
-                    "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/beta/MapleSign.ipa",
+                    "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/v1.0.0/MapleSign.ipa",
                     "size": 14000000,
                     "version": "1.0.0",
                     "buildVersion": "1",
@@ -29,7 +29,7 @@
             ],
             "appPermissions": {},
             "screenshotURLs": [],
-            "downloadURL": "https://github.com/maplesign/MapleSign/releases/latest/download/MapleSign.ipa"
+            "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/v1.0.0/MapleSign.ipa"
         }
     ]
 }

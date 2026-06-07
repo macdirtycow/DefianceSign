@@ -191,6 +191,7 @@ enum FR {
 	
 	static func handleSource(
 		_ urlString: String,
+		silent: Bool = false,
 		competion: @escaping () -> Void
 	) {
 		guard let url = URL(string: urlString) else { return }
@@ -204,14 +205,18 @@ enum FR {
 					Storage.shared.addSource(url, repository: data, id: id) { _ in
 						competion()
 					}
-				} else {
+				} else if !silent {
 					DispatchQueue.main.async {
 						UIAlertController.showAlertWithOk(title: "Error", message: "Repository already added.")
 					}
 				}
 			case .failure(let error):
-				DispatchQueue.main.async {
-					UIAlertController.showAlertWithOk(title: "Error", message: error.localizedDescription)
+				if !silent {
+					DispatchQueue.main.async {
+						UIAlertController.showAlertWithOk(title: "Error", message: error.localizedDescription)
+					}
+				} else {
+					print("MapleSign: skipped built-in source \(urlString): \(error.localizedDescription)")
 				}
 			}
 		}

@@ -94,17 +94,11 @@ extension Storage {
 
 	func addBuiltInSources() {
 		let builtInSourceURLs = [
-            MapleSignConfig.altStoreRepo,
-            "https://community-apps.sidestore.io/sidecommunity.json",
-            "https://xitrix.github.io/iTorrent/AltStore.json",
-			"https://repository.apptesters.org",
-            "https://github.com/LiveContainer/LiveContainer/releases/download/1.0/apps.json",
-			"https://ipa.cypwn.xyz/cypwn.json",
-            "https://alt.crystall1ne.dev"
+			MapleSignConfig.altStoreRepo,
 		]
-		
+
 		for urlString in builtInSourceURLs {
-			FR.handleSource(urlString) { }
+			FR.handleSource(urlString, silent: true) { }
 		}
 	}
 

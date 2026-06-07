@@ -92,11 +92,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _clean()
         
         _copyServerCertificates()
-
-#if SERVER
-        // fallback just in case xd
-        _downloadSSLCertificates()
-#endif
         return true
     }
     

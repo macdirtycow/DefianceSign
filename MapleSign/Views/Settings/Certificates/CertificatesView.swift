@@ -35,10 +35,19 @@ struct CertificatesView: View {
 	
 	// MARK: Body
 	var body: some View {
-		NBGrid {
-			ForEach(Array(certificates.enumerated()), id: \.element.uuid) { index, cert in
-				_cellButton(for: cert, at: index)
+		ScrollView {
+			VStack(alignment: .leading, spacing: 16) {
+				MapleSignBrandHeader(subtitle: "Beheer je developer-certificaten", compact: true)
+					.padding(.horizontal)
+
+				NBGrid {
+					ForEach(Array(certificates.enumerated()), id: \.element.uuid) { index, cert in
+						_cellButton(for: cert, at: index)
+					}
+				}
+				.padding(.horizontal)
 			}
+			.padding(.vertical, 8)
 		}
 		.navigationTitle(.localized("Certificates"))
 		.navigationBarTitleDisplayMode(.inline)

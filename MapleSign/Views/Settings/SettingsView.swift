@@ -34,6 +34,12 @@ struct SettingsView: View {
     var body: some View {
 		NBNavigationView(.localized("Settings")) {
 			Form {
+				Section {
+					MapleSignBrandHeader(subtitle: "v\(Bundle.main.version)")
+				}
+				.listRowBackground(Color.clear)
+				.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+
 				_feedback()
 				
 				Section {

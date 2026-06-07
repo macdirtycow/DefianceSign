@@ -57,9 +57,25 @@ extension NBFetchService {
 					completion(.failure(NBFetchServiceError.networkError(error)))
 					return
 				}
+
+				if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
+					completion(.failure(NBFetchServiceError.parsingError("HTTP \(http.statusCode)")))
+					return
+				}
+
+				if let contentType = (response as? HTTPURLResponse)?.value(forHTTPHeaderField: "Content-Type"),
+				   contentType.lowercased().contains("text/html") {
+					completion(.failure(NBFetchServiceError.parsingError("Unexpected HTML response")))
+					return
+				}
 				
 				guard let data = data else {
 					completion(.failure(NBFetchServiceError.noData))
+					return
+				}
+
+				if data.first == UInt8(ascii: "<") {
+					completion(.failure(NBFetchServiceError.parsingError("Unexpected character '<' around line 1, column 1.")))
 					return
 				}
 				

@@ -19,7 +19,8 @@ class AccentColorManager: ObservableObject {
     }
     
     private let _accentColors: [(color: Color, uiColor: UIColor)] = [
-        (Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255), UIColor(red: 0x53/255, green: 0x94/255, blue: 0xF7/255, alpha: 1.0)), // Default
+        (Color.mapleAccent, UIColor(red: 196/255, green: 92/255, blue: 38/255, alpha: 1.0)), // MapleSign default
+        (Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255), UIColor(red: 0x53/255, green: 0x94/255, blue: 0xF7/255, alpha: 1.0)),
         (Color(red: 0xFF/255, green: 0x8B/255, blue: 0x92/255), UIColor(red: 0xFF/255, green: 0x8B/255, blue: 0x92/255, alpha: 1.0)), //rgb(255, 139, 146)
         (.red, .systemRed),
         (.orange, .systemOrange),

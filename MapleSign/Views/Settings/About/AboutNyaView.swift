@@ -20,13 +20,17 @@ struct AboutNyaView: View {
 		NBList(.localized("About")) {
             Section {
                 VStack {
-                    Image(uiImage: (UIImage(named: Bundle.main.iconFileName ?? ""))! )
-                        .appIconStyle(size: 72)
-                    
-                    Text(Bundle.main.exec)
+                    Image("MapleSignLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 88, height: 88)
+                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .shadow(color: Color.mapleAccent.opacity(0.4), radius: 12, y: 6)
+
+                    Text("MapleSign")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(Color.mapleAccent)
                     
                     HStack(spacing: 4) {
                         Text("Version")
