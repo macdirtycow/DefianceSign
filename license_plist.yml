@@ -3,7 +3,7 @@ options:
     - LICENSE
   packagePaths:
     - Package.swift
-  prefix: net.maplesign.app
+  prefix: net.defiancesign.app
   xcworkspacePath: "*.xcworkspace"
   addVersionNumbers: false
   singlePage: false

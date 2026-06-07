@@ -1,31 +1,31 @@
-# DefianceSign installatiehandleiding
+# DefianceSign installation guide
 
-## Eerste installatie (DefianceSign zelf)
+## First install (DefianceSign itself)
 
-1. Download `DefianceSign.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/DefianceSign/releases/tag/beta)
-2. Installeer via Sideloadly, AltStore of SideStore
-3. Vertrouw het developer-profiel op je iPhone/iPad
+1. Download `DefianceSign.ipa` from [GitHub Releases](https://github.com/macdirtycow/DefianceSign/releases)
+2. Install via Sideloadly, AltStore, or SideStore
+3. Trust the developer profile on your iPhone/iPad
 
-## Certificaat
+## Certificate
 
-Zie [export-p12-guide.md](export-p12-guide.md).
+See [export-p12-guide.md](export-p12-guide.md).
 
-## App signeren & installeren
+## Sign & install apps
 
-1. **Bestanden** → importeer `.ipa`
-2. **Bibliotheek** → Unsigned → selecteer app → **Signeren**
-3. Kies certificaat en opties
-4. Tik **Installeren**
+1. **Files** → import `.ipa`
+2. **Library** → Unsigned → select app → **Sign**
+3. Choose certificate and options
+4. Tap **Install**
 
-## Installatiemethoden
+## Installation methods
 
-| Methode | Wanneer |
-|---------|---------|
-| **Server** (standaard) | Werkt voor de meeste gebruikers; lokale HTTPS-server |
-| **idevice** | Geavanceerd; vereist VPN + pairing file |
+| Method | When |
+|--------|------|
+| **Server** (default) | Works for most users; local HTTPS server |
+| **idevice** | Advanced; requires VPN + pairing file |
 
-Instellingen → Installatie om te wisselen.
+Settings → Installation to switch.
 
-## Her-signen na 7 dagen
+## Re-sign after 7 days
 
-Development-certificaten verlopen na 7 dagen. Open DefianceSign en signeer opnieuw — geen revoke-bypass nodig.
+Development certificates expire after 7 days. Open DefianceSign and sign again — no revoke bypass needed.

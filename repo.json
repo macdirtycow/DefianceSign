@@ -18,18 +18,18 @@
             "category": "utilities",
             "versions": [
                 {
-                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.0/DefianceSign.ipa",
+                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.1/DefianceSign.ipa",
                     "size": 19000000,
-                    "version": "1.1.0",
+                    "version": "1.1.1",
                     "buildVersion": "1",
-                    "date": "2026-06-08T00:00:00+02:00",
-                    "localizedDescription": "Rebrand to DefianceSign with App Library community sources, new logo, and clean unsigned IPA.",
+                    "date": "2026-06-08T12:00:00+02:00",
+                    "localizedDescription": "Crimson accent color, English docs, removed MapleSign branding.",
                     "minOSVersion": "16.0"
                 }
             ],
             "appPermissions": {},
             "screenshotURLs": [],
-            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.0/DefianceSign.ipa"
+            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.1/DefianceSign.ipa"
         }
     ]
 }

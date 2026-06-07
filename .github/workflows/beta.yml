@@ -51,7 +51,7 @@ jobs:
 
           gh release delete beta --cleanup-tag -y || true
           
-          gh release create beta "packages/MapleSign.ipa" \
+          gh release create beta "packages/DefianceSign.ipa" \
             --title "Latest Beta Build" \
             --notes "$(cat release_notes.md)" \
             --prerelease \
@@ -70,7 +70,7 @@ jobs:
           
           REPO="${{ github.repository }}"
           TAG="beta"
-          FILENAME="MapleSign.ipa"
+          FILENAME="DefianceSign.ipa"
           
           DOWNLOAD_URL="https://github.com/$REPO/releases/download/$TAG/$FILENAME"
           RELEASE_URL="https://github.com/$REPO/releases/tag/$TAG"
@@ -79,7 +79,7 @@ jobs:
             --arg commit_msg "$COMMIT_MSG" \
             --arg download_url "$DOWNLOAD_URL" \
             --arg release_url "$RELEASE_URL" \
-            '{content: "**New MapleSign Beta!**\n\nChanges: `\($commit_msg)`\n\n[**Download IPA**](\($download_url))\n[View Release](\($release_url))"}' > discord_payload.json
+            '{content: "**New DefianceSign Beta!**\n\nChanges: `\($commit_msg)`\n\n[**Download IPA**](\($download_url))\n[View Release](\($release_url))"}' > discord_payload.json
 
           curl -fsS \
             -H "Content-Type: application/json" \

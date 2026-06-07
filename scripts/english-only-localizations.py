@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 def main() -> None:
-    path = Path(__file__).resolve().parents[1] / "MapleSign/Resources/Localizable.xcstrings"
+    path = Path(__file__).resolve().parents[1] / "DefianceSign/Resources/Localizable.xcstrings"
     data = json.loads(path.read_text(encoding="utf-8"))
     strings = data.get("strings", {})
     removed = 0

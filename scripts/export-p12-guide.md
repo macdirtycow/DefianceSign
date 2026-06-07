@@ -1,42 +1,42 @@
-# Apple Developer-certificaat exporteren voor DefianceSign
+# Export Apple Developer certificate for DefianceSign
 
-## Stap 1: Certificaat aanmaken
+## Step 1: Create certificate
 
-1. Log in op [developer.apple.com](https://developer.apple.com)
-2. Ga naar **Certificates, Identifiers & Profiles**
-3. Klik **Certificates** → **+** → kies **iOS App Development** (of Distribution)
-4. Volg de stappen en download het certificaat (`.cer`)
+1. Log in at [developer.apple.com](https://developer.apple.com)
+2. Go to **Certificates, Identifiers & Profiles**
+3. Click **Certificates** → **+** → choose **iOS App Development** (or Distribution)
+4. Follow the steps and download the certificate (`.cer`)
 
-## Stap 2: Certificaat installeren op je Mac
+## Step 2: Install certificate on your Mac
 
-1. Dubbelklik op het `.cer`-bestand
-2. Het wordt toegevoegd aan **Keychain Access** (login keychain)
+1. Double-click the `.cer` file
+2. It is added to **Keychain Access** (login keychain)
 
-## Stap 3: Provisioning Profile
+## Step 3: Provisioning Profile
 
-1. Ga naar **Profiles** → **+**
-2. Kies **iOS App Development**
-3. Selecteer je App ID en geregistreerde devices
-4. Download het `.mobileprovision`-bestand
+1. Go to **Profiles** → **+**
+2. Choose **iOS App Development**
+3. Select your App ID and registered devices
+4. Download the `.mobileprovision` file
 
-## Stap 4: Exporteer .p12
+## Step 4: Export .p12
 
-1. Open **Keychain Access** op je Mac
-2. Zoek je certificaat onder **My Certificates**
-3. Rechtsklik → **Export** → kies **Personal Information Exchange (.p12)**
-4. Stel een wachtwoord in (onthoud dit — DefianceSign vraagt dit bij import)
+1. Open **Keychain Access** on your Mac
+2. Find your certificate under **My Certificates**
+3. Right-click → **Export** → choose **Personal Information Exchange (.p12)**
+4. Set a password (remember it — DefianceSign asks for it on import)
 
-## Stap 5: Importeer in DefianceSign
+## Step 5: Import into DefianceSign
 
-1. Open DefianceSign op je iPhone/iPad
-2. Ga naar **Settings** → **Certificates** → **+**
-3. Importeer het `.p12`-bestand en het `.mobileprovision`-bestand
-4. Voer je p12-wachtwoord in
+1. Open DefianceSign on your iPhone/iPad
+2. Go to **Settings** → **Certificates** → **+**
+3. Import the `.p12` file and the `.mobileprovision` file
+4. Enter your p12 password
 
-Het wachtwoord wordt veilig opgeslagen in de iOS Keychain.
+The password is stored securely in the iOS Keychain.
 
 ## Tips
 
-- Registreer je device op developer.apple.com voordat je een profile maakt
-- Development-certificaten verlopen na 7 dagen (her-sign via DefianceSign)
-- Deel nooit je `.p12` met anderen
+- Register your device on developer.apple.com before creating a profile
+- Development certificates expire after 7 days (re-sign via DefianceSign)
+- Never share your `.p12` with others

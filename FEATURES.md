@@ -1,31 +1,31 @@
-# DefianceSign functies
+# DefianceSign features
 
-DefianceSign erft de volledige Ksign/Feather feature-set. Overzicht:
+DefianceSign inherits the full Ksign/Feather feature set. Overview:
 
-## Kern (MVP)
+## Core (MVP)
 
 - [x] `.p12` + `.mobileprovision` import
-- [x] Keychain-opslag voor wachtwoorden
-- [x] OCSP revoke-check op certificaten
-- [x] IPA signen via zsign
-- [x] Server-installatie (Vapor + itms-services)
-- [x] App-bibliotheek (unsigned/signed)
+- [x] Keychain storage for passwords
+- [x] OCSP revoke check on certificates
+- [x] IPA signing via zsign
+- [x] Server installation (Vapor + itms-services)
+- [x] App library (unsigned/signed)
 
-## ESign-pariteit (fase 2)
+## ESign parity (phase 2)
 
-- [x] Bulk signen (`BulkSigningView`)
-- [x] Bulk installeren
-- [x] Dylib/framework/deb injectie (`SigningTweaksView`, ElleKit)
-- [x] Bundle ID, naam, versie, icon aanpassen
-- [x] AltStore repository-bronnen
+- [x] Bulk signing (`BulkSigningView`)
+- [x] Bulk installation
+- [x] Dylib/framework/deb injection (`SigningTweaksView`, ElleKit)
+- [x] Bundle ID, name, version, icon customization
+- [x] AltStore repository sources
 - [x] File manager (unzip, plist editor, hex editor)
-- [x] Achtergrond downloads (`DownloadManager`, `BackgroundTaskManager`)
-- [x] idevice/AFC installatie (`InstallationProxy`, VPN + pairing)
-- [x] IPA downloader met ingebouwde browser
-- [x] Logs-tab
+- [x] Background downloads (`DownloadManager`, `BackgroundTaskManager`)
+- [x] idevice/AFC installation (`InstallationProxy`, VPN + pairing)
+- [x] IPA downloader with built-in browser
+- [x] Logs tab
 
-## Bewust niet aanwezig (veiligheid)
+## Intentionally absent (security)
 
-- [ ] Ingebouwde gedeelde certificaten
-- [ ] Anti-revoke DNS / OCSP-blokkering
+- [ ] Built-in shared certificates
+- [ ] Anti-revoke DNS / OCSP blocking
 - [ ] Telemetry / analytics

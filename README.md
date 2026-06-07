@@ -1,76 +1,76 @@
 # DefianceSign
 
-Veilige, open-source IPA-signer en installer voor iPhone en iPad. Fork van [Ksign](https://github.com/Nyasami/Ksign) (gebaseerd op [Feather](https://github.com/khcrysalis/Feather)).
+Secure, open-source IPA signer and installer for iPhone and iPad. Fork of [Ksign](https://github.com/Nyasami/Ksign) (based on [Feather](https://github.com/khcrysalis/Feather)).
 
 **Website:** [defiancesign.com](https://defiancesign.com)
 
-## Waarom DefianceSign?
+## Why DefianceSign?
 
-- **Open source** — volledig transparante code op GitHub
-- **Geen Chinese backend** — geen telemetry, geen gedeelde certificaten
-- **Eigen certificaat** — importeer je eigen `.p12` + `.mobileprovision` van je Apple Developer-account
-- **Lokaal en veilig** — certificaatwachtwoorden in iOS Keychain, data blijft op je device
-- **iPhone + iPad** — universele SwiftUI-app
+- **Open source** — fully transparent code on GitHub
+- **No Chinese backend** — no telemetry, no shared certificates
+- **Your own certificate** — import your `.p12` + `.mobileprovision` from your Apple Developer account
+- **Local and secure** — certificate passwords in iOS Keychain, data stays on your device
+- **iPhone + iPad** — universal SwiftUI app
 
-## Vereisten
+## Requirements
 
-- iPhone of iPad met iOS 16+
-- Mac met Xcode 15+ (alleen voor bouwen)
-- [Apple Developer-account](https://developer.apple.com) ($99/jaar)
-- Eenmalige installatie van DefianceSign zelf via Sideloadly, AltStore of SideStore
+- iPhone or iPad with iOS 16+
+- Mac with Xcode 15+ (for building only)
+- [Apple Developer account](https://developer.apple.com) ($99/year)
+- One-time install of DefianceSign itself via Sideloadly, AltStore, or SideStore
 
-## Certificaat importeren
+## Import your certificate
 
-1. Ga naar [developer.apple.com](https://developer.apple.com) → Certificates → maak een iOS Development/Distribution certificaat
-2. Maak een Provisioning Profile voor je devices
-3. Exporteer `.p12` vanuit Keychain Access op je Mac
-4. Open DefianceSign → Settings → Certificates → importeer `.p12` en `.mobileprovision`
+1. Go to [developer.apple.com](https://developer.apple.com) → Certificates → create an iOS Development/Distribution certificate
+2. Create a Provisioning Profile for your devices
+3. Export `.p12` from Keychain Access on your Mac
+4. Open DefianceSign → Settings → Certificates → import `.p12` and `.mobileprovision`
 
-Je p12-wachtwoord wordt opgeslagen in de iOS Keychain, niet in platte tekst.
+Your p12 password is stored in the iOS Keychain, not in plain text.
 
-Zie [scripts/export-p12-guide.md](scripts/export-p12-guide.md) voor een uitgebreide handleiding.
+See [scripts/export-p12-guide.md](scripts/export-p12-guide.md) for a detailed guide.
 
 ## Download
 
-Download de nieuwste `.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/DefianceSign/releases/tag/beta).
+Download the latest `.ipa` from [GitHub Releases](https://github.com/macdirtycow/DefianceSign/releases).
 
-Website-bron staat in [`website/`](website/) — deploy naar [defiancesign.com](https://defiancesign.com).
+Website source is in [`website/`](website/) — deploy to [defiancesign.com](https://defiancesign.com).
 
-## Bouwen
+## Build
 
 ```bash
-git clone https://github.com/defiancesign/DefianceSign --recursive
+git clone https://github.com/macdirtycow/DefianceSign --recursive
 cd DefianceSign
 ./scripts/build-release.sh
 # Output: packages/DefianceSign.ipa (~13 MB)
 ```
 
-Of handmatig:
+Or manually:
 
 ```bash
 make DefianceSign
 ```
 
-De build maakt een **unsigned IPA** die je daarna via Sideloadly/AltStore installeert.
+The build produces an **unsigned IPA** that you install via Sideloadly/AltStore afterward.
 
-## Beveiliging
+## Security
 
-DefianceSign doet **niet**:
+DefianceSign does **not**:
 
-- Ingebouwde gratis/gedeelde certificaten importeren
-- Anti-revoke DNS of OCSP-blokkering
-- Data naar externe servers sturen
+- Import built-in free/shared certificates
+- Use anti-revoke DNS or OCSP blocking
+- Send data to external servers
 
-## Licentie
+## License
 
-GPL-3.0 — zie [LICENSE](LICENSE). Gebaseerd op Feather (GPL-3.0) en Ksign (GPL-3.0).
+GPL-3.0 — see [LICENSE](LICENSE). Based on Feather (GPL-3.0) and Ksign (GPL-3.0).
 
 ## Credits
 
-- [Feather](https://github.com/khcrysalis/Feather) door samara / claration
-- [Ksign](https://github.com/Nyasami/Ksign) door Nyasami
+- [Feather](https://github.com/khcrysalis/Feather) by samara / claration
+- [Ksign](https://github.com/Nyasami/Ksign) by Nyasami
 - [zsign](https://github.com/xtool-org/zsign) signing engine
 
 ## Disclaimer
 
-DefianceSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat. Misbruik van enterprise-certificaten schendt Apple's voorwaarden.
+DefianceSign is not an App Store app. Use only your own Apple Developer certificate. Misuse of enterprise certificates violates Apple's terms.
