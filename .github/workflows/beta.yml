@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build Beta
@@ -30,7 +33,11 @@ jobs:
           echo "## Commit: \`$COMMIT_MSG\` (${{ github.sha }})" >> release_notes.md
           echo "### New in this build (Compared to $LATEST_OFFICIAL_TAG):" >> release_notes.md
             
-          CHANGES=$(git log --pretty=format:"* %s (%h)" ${LATEST_OFFICIAL_TAG}..HEAD)
+          if [ -n "$LATEST_OFFICIAL_TAG" ]; then
+            CHANGES=$(git log --pretty=format:"* %s (%h)" ${LATEST_OFFICIAL_TAG}..HEAD)
+          else
+            CHANGES=$(git log --pretty=format:"* %s (%h)" -5)
+          fi
             
           if [ -z "$CHANGES" ]; then
             echo "* No code changes since $LATEST_OFFICIAL_TAG" >> release_notes.md
@@ -51,6 +58,7 @@ jobs:
             --target ${{ github.sha }}
 
       - name: Notify Discord
+        if: ${{ secrets.DISCORD_WEBHOOK != '' }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
@@ -63,15 +71,13 @@ jobs:
           DOWNLOAD_URL="https://github.com/$REPO/releases/download/$TAG/$FILENAME"
           RELEASE_URL="https://github.com/$REPO/releases/tag/$TAG"
           
-          echo "Sending link to Discord..."
-          
           jq -n \
             --arg commit_msg "$COMMIT_MSG" \
             --arg download_url "$DOWNLOAD_URL" \
             --arg release_url "$RELEASE_URL" \
-            '{content: "**New Beta Released!**\n\nChanges: `\($commit_msg)`\n\n[**Download IPA**](\($download_url))\n[View Release](\($release_url))"}' > discord_payload.json
+            '{content: "**New MapleSign Beta!**\n\nChanges: `\($commit_msg)`\n\n[**Download IPA**](\($download_url))\n[View Release](\($release_url))"}' > discord_payload.json
 
-          curl -v \
+          curl -fsS \
             -H "Content-Type: application/json" \
             -d @discord_payload.json \
             "$DISCORD_WEBHOOK"

@@ -183,7 +183,15 @@ extension ResetView {
 	
 	static func resetCertificates(resetAll: Bool = false) {
 		if !resetAll { UserDefaults.standard.set(0, forKey: "feather.selectedCert") }
-		Storage.shared.clearContext(request: CertificatePair.fetchRequest())
+		let request = CertificatePair.fetchRequest()
+		if let certs = try? Storage.shared.context.fetch(request) {
+			for cert in certs {
+				if let uuid = cert.uuid {
+					KeychainService.deletePassword(for: uuid)
+				}
+			}
+		}
+		Storage.shared.clearContext(request: request)
 		try? FileManager.default.removeFileIfNeeded(at: FileManager.default.certificates)
 	}
 	

@@ -24,7 +24,10 @@ extension Storage {
 		let new = CertificatePair(context: context)
 		new.uuid = uuid
 		new.date = Date()
-		new.password = password
+		new.password = nil
+		if let password {
+			KeychainService.savePassword(password, for: uuid)
+		}
 		new.ppQCheck = ppq
 		new.expiration = expiration
 		new.nickname = nickname
@@ -40,7 +43,7 @@ extension Storage {
         Zsign.checkRevokage(
             provisionPath: Storage.shared.getFile(.provision, from: cert)?.path ?? "",
             p12Path: Storage.shared.getFile(.certificate, from: cert)?.path ?? "",
-            p12Password: cert.password ?? ""
+            p12Password: certificatePassword(for: cert)
         ) { (status, _, _) in
             if status == 1 {
                 DispatchQueue.main.async {
@@ -62,6 +65,9 @@ extension Storage {
     
 	func deleteCertificate(for cert: CertificatePair) {
 		do {
+			if let uuid = cert.uuid {
+				KeychainService.deletePassword(for: uuid)
+			}
 			if cert.p12Data == nil && cert.provisionData == nil {
 				if let url = getUuidDirectory(for: cert) {
 					try FileManager.default.removeItem(at: url)

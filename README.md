@@ -26,6 +26,8 @@ Veilige, open-source IPA-signer en installer voor iPhone en iPad. Fork van [Ksig
 3. Exporteer `.p12` vanuit Keychain Access op je Mac
 4. Open MapleSign → Settings → Certificates → importeer `.p12` en `.mobileprovision`
 
+Je p12-wachtwoord wordt opgeslagen in de iOS Keychain, niet in platte tekst.
+
 Zie [scripts/export-p12-guide.md](scripts/export-p12-guide.md) voor een uitgebreide handleiding.
 
 ## Download
