@@ -9,7 +9,8 @@ import Security
 enum KeychainService {
 	private static let service = "net.maplesign.app.certificates"
 
-	static func savePassword(_ password: String, for certificateUUID: String) {
+	@discardableResult
+	static func savePassword(_ password: String, for certificateUUID: String) -> Bool {
 		let account = certificateUUID
 		let data = Data(password.utf8)
 
@@ -23,12 +24,14 @@ enum KeychainService {
 
 		var attributes = query
 		attributes[kSecValueData as String] = data
-		attributes[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+		attributes[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
 
 		let status = SecItemAdd(attributes as CFDictionary, nil)
 		if status != errSecSuccess {
 			print("KeychainService: failed to save password for \(certificateUUID), status \(status)")
+			return false
 		}
+		return true
 	}
 
 	static func loadPassword(for certificateUUID: String) -> String? {
@@ -66,13 +69,28 @@ extension Storage {
 			return keychainPassword
 		}
 
-		if let legacyPassword = cert.password, !legacyPassword.isEmpty {
+		if let legacyPassword = cert.password {
 			KeychainService.savePassword(legacyPassword, for: uuid)
-			cert.password = nil
-			saveContext()
 			return legacyPassword
 		}
 
 		return ""
+	}
+
+	func migrateCertificatePasswordsIfNeeded() {
+		let request = CertificatePair.fetchRequest()
+		guard let certificates = try? context.fetch(request) else { return }
+
+		for cert in certificates {
+			guard let uuid = cert.uuid else { continue }
+
+			if KeychainService.loadPassword(for: uuid) != nil {
+				continue
+			}
+
+			if let legacyPassword = cert.password {
+				KeychainService.savePassword(legacyPassword, for: uuid)
+			}
+		}
 	}
 }

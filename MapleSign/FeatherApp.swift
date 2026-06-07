@@ -92,6 +92,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _clean()
         
         _copyServerCertificates()
+		Storage.shared.migrateCertificatePasswordsIfNeeded()
         return true
     }
     

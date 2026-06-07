@@ -24,7 +24,7 @@ extension Storage {
 		let new = CertificatePair(context: context)
 		new.uuid = uuid
 		new.date = Date()
-		new.password = nil
+		new.password = password
 		if let password {
 			KeychainService.savePassword(password, for: uuid)
 		}

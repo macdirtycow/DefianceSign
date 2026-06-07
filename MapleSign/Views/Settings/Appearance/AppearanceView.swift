@@ -29,13 +29,13 @@ struct AppearanceView: View {
 	@StateObject private var accentColorManager = AccentColorManager.shared
     
 	private let _accentColors: [(name: String, color: Color)] = [
-		(.localized("Default"), Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255)),
+		(.localized("Maple"), Color.mapleAccent),
+		(.localized("Blue"), Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255)),
 		(.localized("Cherry"), Color(red: 0xFF/255, green: 0x8B/255, blue: 0x92/255)),
 		(.localized("Red"), .red),
 		(.localized("Orange"), .orange),
 		(.localized("Yellow"), .yellow),
 		(.localized("Green"), .green),
-		(.localized("Blue"), .blue),
 		(.localized("Purple"), .purple),
 		(.localized("Pink"), .pink),
 		(.localized("Indigo"), .indigo),
@@ -122,18 +122,21 @@ struct AppearanceView: View {
     private func _storePreview() -> some View {
         VStack {
             HStack(spacing: 9) {
-                Image(uiImage: (UIImage(named: Bundle.main.iconFileName ?? ""))! )
-                    .appIconStyle(size: 57)
+                Image("MapleSignLogo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 57, height: 57)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 
                 NBTitleWithSubtitleView(
                     title: Bundle.main.name,
-                    subtitle: "\(Bundle.main.version) • " + .localized("An awesome application"),
+                    subtitle: "\(Bundle.main.version) • " + .localized("Secure on-device IPA signer"),
                     linelimit: 0
                 )
             }
             
             if _storeCellAppearance != 0 {
-                Text(.localized("An awesome application"))
+                Text(.localized("Secure on-device IPA signer"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

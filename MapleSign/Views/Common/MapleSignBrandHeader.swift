@@ -29,7 +29,7 @@ struct MapleSignBrandHeader: View {
 						.font(.caption)
 						.foregroundStyle(.secondary)
 				} else {
-					Text("Veilig signen op je device")
+					Text("Secure on-device IPA signing")
 						.font(.caption)
 						.foregroundStyle(.secondary)
 				}

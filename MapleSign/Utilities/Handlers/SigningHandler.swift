@@ -106,26 +106,24 @@ final class SigningHandler: NSObject {
             try await _locateMachosAndFixupArm64eSlice(for: movedAppPath)
         }
 		
-        let handler = ZsignHandler(appUrl: movedAppPath, options: _options, cert: appCertificate)
-        try await handler.disinject()
+        let zsignHandler = ZsignHandler(appUrl: movedAppPath, options: _options, cert: appCertificate)
+        try await zsignHandler.disinject()
 		
 		if !_options.onlyModify {
-			let handler = ZsignHandler(appUrl: movedAppPath, options: _options, cert: appCertificate)
-			
 			if _options.doAdhocSigning {
-				try await handler.adhocSign()
-			} else if (appCertificate != nil) {
-				try await handler.sign()
+				try await zsignHandler.adhocSign()
+			} else if appCertificate != nil {
+				try await zsignHandler.sign()
 			} else {
 				throw SigningFileHandlerError.missingCertifcate
+			}
+
+			if let error = zsignHandler.hadError {
+				throw error
 			}
 		}
         try await self.move()
         try await self.addToDatabase()
-
-        if let error = handler.hadError {
-            throw error
-        }
 	}
 	
 	func move() async throws {
@@ -351,6 +349,7 @@ enum SigningFileHandlerError: Error, LocalizedError {
 	case appNotFound
 	case infoPlistNotFound
 	case missingCertifcate
+	case invalidCertificatePassword
 	case disinjectFailed
 	case signFailed
 	
@@ -362,6 +361,8 @@ enum SigningFileHandlerError: Error, LocalizedError {
 			return "Unable to locate info.plist path."
 		case .missingCertifcate:
 			return "No certificate was specified."
+		case .invalidCertificatePassword:
+			return "Certificate password is missing or incorrect. Re-import your .p12 and .mobileprovision in Settings → Certificates."
 		case .disinjectFailed:
 			return "Removing mach-O load paths failed."
 		case .signFailed:

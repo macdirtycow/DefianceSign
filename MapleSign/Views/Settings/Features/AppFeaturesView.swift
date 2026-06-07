@@ -40,10 +40,10 @@ struct AppFeaturesView: View {
             }
             Section {
                 Toggle(isOn: $_optionsManager.options.saveAppStoreDownloadsToDownloadsFolder) {
-                    Label(.localized("Save App Store downloads to Downloads folder"), systemImage: "square.and.arrow.down.fill")
+                    Label(.localized("Save App Library downloads to Downloads folder"), systemImage: "square.and.arrow.down.fill")
                 }
             } footer: {
-                Text(.localized("This will save the App Store downloads to the Downloads folder, turning this off will help reduce disk usage."))
+                Text(.localized("This will save App Library downloads to the Downloads folder. Turning this off helps reduce disk usage."))
             }
         }
         .onChange(of: _optionsManager.options) { _ in

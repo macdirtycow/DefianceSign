@@ -37,7 +37,7 @@ struct CertificatesView: View {
 	var body: some View {
 		ScrollView {
 			VStack(alignment: .leading, spacing: 16) {
-				MapleSignBrandHeader(subtitle: "Beheer je developer-certificaten", compact: true)
+				MapleSignBrandHeader(subtitle: "Manage your developer certificates", compact: true)
 					.padding(.horizontal)
 
 				NBGrid {

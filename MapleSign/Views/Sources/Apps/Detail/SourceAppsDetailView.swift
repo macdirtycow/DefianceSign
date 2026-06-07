@@ -51,7 +51,7 @@ struct SourceAppsDetailView: View {
 							.font(.title2)
 							.fontWeight(.semibold)
 							.foregroundColor(.primary)
-						Text(app.currentDescription ?? .localized("An awesome application"))
+						Text(app.currentDescription ?? .localized("Secure on-device IPA signer"))
 							.font(.subheadline)
 							.foregroundColor(.secondary)
 						
@@ -194,7 +194,7 @@ struct SourceAppsDetailView: View {
 			) {
 				let sharedString = """
 				\(app.currentName) - \(app.currentVersion ?? "0")
-				\(app.currentDescription ?? .localized("An awesome application"))
+				\(app.currentDescription ?? .localized("Secure on-device IPA signer"))
 				---
 				\(source.website?.absoluteString ?? source.name ?? "")
 				"""
