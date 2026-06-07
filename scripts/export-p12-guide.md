@@ -1,4 +1,4 @@
-# Apple Developer-certificaat exporteren voor MapleSign
+# Apple Developer-certificaat exporteren voor DefianceSign
 
 ## Stap 1: Certificaat aanmaken
 
@@ -24,11 +24,11 @@
 1. Open **Keychain Access** op je Mac
 2. Zoek je certificaat onder **My Certificates**
 3. Rechtsklik → **Export** → kies **Personal Information Exchange (.p12)**
-4. Stel een wachtwoord in (onthoud dit — MapleSign vraagt dit bij import)
+4. Stel een wachtwoord in (onthoud dit — DefianceSign vraagt dit bij import)
 
-## Stap 5: Importeer in MapleSign
+## Stap 5: Importeer in DefianceSign
 
-1. Open MapleSign op je iPhone/iPad
+1. Open DefianceSign op je iPhone/iPad
 2. Ga naar **Settings** → **Certificates** → **+**
 3. Importeer het `.p12`-bestand en het `.mobileprovision`-bestand
 4. Voer je p12-wachtwoord in
@@ -38,5 +38,5 @@ Het wachtwoord wordt veilig opgeslagen in de iOS Keychain.
 ## Tips
 
 - Registreer je device op developer.apple.com voordat je een profile maakt
-- Development-certificaten verlopen na 7 dagen (her-sign via MapleSign)
+- Development-certificaten verlopen na 7 dagen (her-sign via DefianceSign)
 - Deel nooit je `.p12` met anderen

@@ -1,35 +1,35 @@
 {
-    "name": "MapleSign Repository",
-    "identifier": "net.maplesign.app-repo",
-    "subtitle": "Secure IPA signer for iPhone and iPad",
-    "description": "AltStore source for MapleSign — open-source ESign alternative",
-    "iconURL": "https://raw.githubusercontent.com/macdirtycow/MapleSign/main/MapleSign/Resources/Assets.xcassets/MapleSignLogo.imageset/MapleSignLogo.png",
-    "website": "https://maplesign.net",
-    "tintColor": "C45C26",
+    "name": "DefianceSign Repository",
+    "identifier": "net.defiancesign.app-repo",
+    "subtitle": "Sign IPAs on your own terms",
+    "description": "AltStore source for DefianceSign — open-source IPA signer for iPhone and iPad",
+    "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
+    "website": "https://defiancesign.com",
+    "tintColor": "FF2D55",
     "apps": [
         {
-            "name": "MapleSign",
-            "bundleIdentifier": "net.maplesign.app",
-            "developerName": "MapleSign",
-            "iconURL": "https://raw.githubusercontent.com/macdirtycow/MapleSign/main/MapleSign/Resources/Assets.xcassets/MapleSignLogo.imageset/MapleSignLogo.png",
-            "localizedDescription": "Secure, open-source IPA signer for iPhone and iPad. Use your own Apple Developer certificate.",
-            "subtitle": "Secure ESign alternative",
-            "tintColor": "C45C26",
+            "name": "DefianceSign",
+            "bundleIdentifier": "net.defiancesign.app",
+            "developerName": "DefianceSign",
+            "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
+            "localizedDescription": "Open-source IPA signer for iPhone and iPad. Your certificate stays on your device.",
+            "subtitle": "Sign apps. Your rules.",
+            "tintColor": "FF2D55",
             "category": "utilities",
             "versions": [
                 {
-                    "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/v1.0.4/MapleSign.ipa",
-                    "size": 14000000,
-                    "version": "1.0.4",
-                    "buildVersion": "4",
-                    "date": "2026-06-07T20:00:00+02:00",
-                    "localizedDescription": "Fixes install stuck at Ready, Library search bar overlap, and forces full English UI.",
+                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.0/DefianceSign.ipa",
+                    "size": 19000000,
+                    "version": "1.1.0",
+                    "buildVersion": "1",
+                    "date": "2026-06-08T00:00:00+02:00",
+                    "localizedDescription": "Rebrand to DefianceSign with App Library community sources, new logo, and clean unsigned IPA.",
                     "minOSVersion": "16.0"
                 }
             ],
             "appPermissions": {},
             "screenshotURLs": [],
-            "downloadURL": "https://github.com/macdirtycow/MapleSign/releases/download/v1.0.4/MapleSign.ipa"
+            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.0/DefianceSign.ipa"
         }
     ]
 }

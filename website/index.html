@@ -1,66 +1,249 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MapleSign — Veilige IPA-signer voor iPhone & iPad</title>
-  <meta name="description" content="Open-source ESign-alternatief. Signeer en installeer IPA-bestanden met je eigen Apple Developer-certificaat.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DefianceSign — sign IPAs on your iPhone &amp; iPad</title>
+  <meta name="description" content="Open-source IPA signer for iOS. Your certificate stays on your device. Sign and install apps locally.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070b;
+      --surface: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.08);
+      --text: #f4f2ff;
+      --muted: #9b95ad;
+      --accent: #ff2d55;
+      --accent2: #ff6b35;
+      --glow: rgba(255,45,85,0.35);
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .mesh {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(255,45,85,0.18), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(255,107,53,0.12), transparent 50%),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(120,60,255,0.08), transparent 60%);
+    }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: var(--text);
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em;
+    }
+    .logo img { width: 36px; height: 36px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; box-shadow: 0 8px 32px var(--glow);
+    }
+    .btn-ghost { color: var(--text); border: 1px solid var(--line); background: var(--surface); }
+
+    .hero {
+      padding: 88px 0 72px;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;
+    }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-top: 56px; } }
+    .eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Syne, sans-serif; font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 32em; margin-bottom: 32px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      font-size: 0.78rem; padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--muted); background: var(--surface);
+    }
+
+    .phone {
+      position: relative; padding: 24px;
+      background: linear-gradient(160deg, rgba(255,45,85,0.08), rgba(255,255,255,0.02));
+      border: 1px solid var(--line); border-radius: 28px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .phone-inner {
+      background: #111118; border-radius: 20px; padding: 28px 22px; min-height: 340px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .phone-top { display: flex; gap: 6px; margin-bottom: 24px; }
+    .phone-top span { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .phone-top span:first-child { background: #ff2d55; }
+    .phone-item {
+      display: flex; align-items: center; gap: 14px; padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .phone-item:last-child { border: none; }
+    .phone-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: linear-gradient(135deg, var(--accent), #c41d4a);
+      display: grid; place-items: center; font-family: Syne; font-weight: 800; color: #fff;
+    }
+    .phone-item strong { display: block; font-size: 0.92rem; }
+    .phone-item small { color: var(--muted); font-size: 0.78rem; }
+
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-family: Syne, sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700; letter-spacing: -0.02em; margin-bottom: 40px;
+    }
+    .grid3 {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    @media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
+    .card {
+      padding: 28px; border-radius: 20px; background: var(--surface);
+      border: 1px solid var(--line); transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: rgba(255,45,85,0.35); transform: translateY(-2px); }
+    .card h3 { font-family: Syne; font-size: 1rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.92rem; }
+
+    .steps { display: grid; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 56px 1fr; gap: 20px;
+      padding: 24px 0; border-top: 1px solid var(--line); align-items: start;
+    }
+    .step-num {
+      font-family: Syne; font-weight: 800; font-size: 1.1rem; color: var(--accent);
+    }
+    .step strong { display: block; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: 0.92rem; }
+
+    footer {
+      padding: 48px 0 64px; border-top: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;
+      color: var(--muted); font-size: 0.88rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--text); }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <p class="badge">Open source · GDPR-vriendelijk · Geen telemetry</p>
-      <h1>MapleSign</h1>
-      <p class="lead">Veilige IPA-signer en installer voor iPhone en iPad. Gebruik je eigen certificaat — geen Chinese backend, geen gedeelde p12-bestanden.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/macdirtycow/MapleSign/releases/tag/beta">Download IPA</a>
-        <a class="btn" href="https://github.com/macdirtycow/MapleSign">GitHub</a>
-        <a class="btn" href="docs.html">Documentatie</a>
+  <div class="mesh"></div>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="">
+        DefianceSign
+      </a>
+      <div class="nav-links">
+        <a href="docs.html">Docs</a>
+        <a href="https://github.com/macdirtycow/DefianceSign">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/macdirtycow/DefianceSign/releases/latest">Download IPA</a>
       </div>
-    </div>
-  </header>
+    </nav>
 
-  <main class="container">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Open source · iOS 16+</p>
+        <h1>Sign apps.<br><span>Your rules.</span></h1>
+        <p>DefianceSign is an on-device IPA signer for iPhone and iPad. Import your own Apple Developer certificate, sign locally, and install — no cloud, no shared keys.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="https://github.com/macdirtycow/DefianceSign/releases/latest">Get latest IPA</a>
+          <a class="btn btn-ghost" href="docs.html">Setup guide</a>
+        </div>
+        <div class="tags">
+          <span class="tag">Own .p12 certificate</span>
+          <span class="tag">App Library</span>
+          <span class="tag">Semi-local install</span>
+          <span class="tag">No telemetry</span>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="phone-top"><span></span><span></span><span></span></div>
+          <div class="phone-item">
+            <div class="phone-icon">D</div>
+            <div><strong>Import certificate</strong><small>.p12 + .mobileprovision</small></div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-icon">↓</div>
+            <div><strong>Add IPA</strong><small>Files, URL, or App Library</small></div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-icon">✓</div>
+            <div><strong>Sign &amp; install</strong><small>Over your local network</small></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <section>
-      <h2>Waarom MapleSign?</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Veilig</h3>
-          <p>Certificaatwachtwoorden in iOS Keychain. Geen anti-revoke DNS of shady certificaten.</p>
-        </article>
-        <article class="card">
-          <h3>Open source</h3>
-          <p>Gebaseerd op Feather/Ksign (GPL-3.0). Volledig transparante code op GitHub.</p>
-        </article>
-        <article class="card">
-          <h3>Alles-in-één</h3>
-          <p>Signeren, installeren, bulk signing, dylib-injectie, AltStore-bronnen en file manager.</p>
-        </article>
+      <h2>Built different</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Your keys, your device</h3>
+          <p>Certificates and passwords never leave your iPhone or iPad. No backend, no shared certs.</p>
+        </div>
+        <div class="card">
+          <h3>App Library</h3>
+          <p>Browse community sources from Ksign, Feather, SideStore, and more — optional, on your terms.</p>
+        </div>
+        <div class="card">
+          <h3>Full signing pipeline</h3>
+          <p>zsign-powered resign, dylib injection, bulk sign, and network install via itms-services.</p>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2>Snel starten</h2>
-      <ol class="steps">
-        <li>Installeer MapleSign eenmalig via <strong>Sideloadly</strong>, <strong>AltStore</strong> of <strong>SideStore</strong>.</li>
-        <li>Exporteer je <code>.p12</code> en <code>.mobileprovision</code> vanuit je Apple Developer-account.</li>
-        <li>Importeer beide in MapleSign → Instellingen → Certificaten.</li>
-        <li>Importeer een IPA, signeer en installeer op je device.</li>
-      </ol>
-      <p><a href="docs.html">Volledige handleiding →</a></p>
+      <h2>Quick start</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div><strong>Install DefianceSign</strong><p>Sideload the IPA with Sideloadly, ESign, or SideStore using your developer certificate.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div><strong>Import your certificate</strong><p>Settings → Certificates → import .p12 and .mobileprovision. Bundle ID must match your App ID.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div><strong>Sign &amp; install</strong><p>Add an IPA, sign it, tap Install. Trust your developer profile in iOS Settings if prompted.</p></div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>iOS-ondersteuning</h2>
-      <p>iOS 16+ · iPhone & iPad · Server- en idevice-installatiemethode</p>
-      <p class="status ok">Laatste build: beschikbaar via GitHub Releases (beta)</p>
-    </section>
-  </main>
-
-  <footer class="container">
-    <p>MapleSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat.</p>
-    <p><a href="https://github.com/macdirtycow/MapleSign">GitHub</a> · GPL-3.0 · EU-hosting aanbevolen</p>
-  </footer>
+    <footer>
+      <span>© 2026 DefianceSign</span>
+      <div>
+        <a href="docs.html">Documentation</a>
+        <a href="https://github.com/macdirtycow/DefianceSign/releases">Releases</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

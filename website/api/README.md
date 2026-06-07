@@ -1,26 +1,26 @@
-# MapleSign plist-proxy (optioneel)
+# DefianceSign plist proxy (optional)
 
-MapleSign's **Semi Local** installatiemethode gebruikt een externe HTTPS-server om het install-manifest te hosten.
+DefianceSign's **Semi Local** install method uses an external HTTPS server to host the install manifest.
 
 ## Endpoint
 
 ```
-GET https://maplesign.net/api/genPlist?bundleid=...&name=...&version=...&fetchurl=...
+GET https://defiancesign.com/api/genPlist?bundleid=...&name=...&version=...&fetchurl=...
 ```
 
-Retourneert een `application/xml` plist voor `itms-services://`.
+Returns an `application/xml` plist for `itms-services://`.
 
-## Deploy opties (EU)
+## Deploy options (EU-friendly)
 
-1. **Cloudflare Worker** — serverless, EU-regio instelbaar
-2. **Kleine VPS** (Hetzner NL) met nginx + een simpele proxy naar een bestaande generator
-3. **Tijdelijk**: MapleSign valt terug op lokale server-modus (aanbevolen)
+1. **Cloudflare Worker** — serverless, EU region configurable
+2. **Small VPS** (e.g. Hetzner NL) with nginx proxy
+3. **Temporary fallback**: DefianceSign uses local server mode (works without proxy)
 
 ## Privacy
 
-De proxy host alleen install-manifests. Geen certificaten, geen IPA-bestanden, geen gebruikersdata.
+The proxy only hosts install manifests. No certificates, no IPA files, no user data.
 
-## Voorbeeld Worker (concept)
+## Example Worker
 
 ```javascript
 export default {
@@ -35,4 +35,4 @@ export default {
 };
 ```
 
-Vervang `api.palera.in` door je eigen implementatie wanneer je volledige controle wilt.
+Replace `api.palera.in` with your own implementation when you want full control.

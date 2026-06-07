@@ -1,8 +1,8 @@
-# MapleSign installatiehandleiding
+# DefianceSign installatiehandleiding
 
-## Eerste installatie (MapleSign zelf)
+## Eerste installatie (DefianceSign zelf)
 
-1. Download `MapleSign.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/MapleSign/releases/tag/beta)
+1. Download `DefianceSign.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/DefianceSign/releases/tag/beta)
 2. Installeer via Sideloadly, AltStore of SideStore
 3. Vertrouw het developer-profiel op je iPhone/iPad
 
@@ -28,4 +28,4 @@ Instellingen → Installatie om te wisselen.
 
 ## Her-signen na 7 dagen
 
-Development-certificaten verlopen na 7 dagen. Open MapleSign en signeer opnieuw — geen revoke-bypass nodig.
+Development-certificaten verlopen na 7 dagen. Open DefianceSign en signeer opnieuw — geen revoke-bypass nodig.

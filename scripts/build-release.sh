@@ -4,11 +4,11 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-SCHEME="${SCHEME:-MapleSign}"
+SCHEME="${SCHEME:-DefianceSign}"
 OUTPUT_DIR="$ROOT/packages"
 IPA_PATH="$OUTPUT_DIR/${SCHEME}.ipa"
 
-echo "MapleSign release build"
+echo "DefianceSign release build"
 echo "  Scheme: $SCHEME"
 echo "  Output: $IPA_PATH"
 
@@ -34,5 +34,5 @@ SIZE=$(du -h "$IPA_PATH" | cut -f1)
 echo ""
 echo "Done: $IPA_PATH ($SIZE)"
 echo ""
-echo "Install MapleSign once via Sideloadly, AltStore, or SideStore,"
+echo "Install DefianceSign once via Sideloadly, AltStore, or SideStore,"
 echo "then use it to sign other apps with your own .p12 certificate."

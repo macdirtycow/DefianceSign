@@ -1,0 +1,2445 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "": {
+      "shouldTranslate": false
+    },
+    "%lld Apps": {
+      "comment": "Repository app count",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld App"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld Apps"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld Days": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld Day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld Days"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld item%@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld item%2$@"
+          }
+        }
+      }
+    },
+    "%lld required system dylibs not shown": {
+      "comment": "Number of macho load paths not listed for safety",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld required system dylibs not shown"
+          }
+        }
+      }
+    },
+    "%lld Sources": {
+      "comment": "Amount of sources",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Sources"
+          }
+        }
+      }
+    },
+    "•": {
+      "localizations": {},
+      "shouldTranslate": false
+    },
+    "About": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        }
+      }
+    },
+    "About the original Feather": {
+      "localizations": {}
+    },
+    "Add": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        }
+      }
+    },
+    "Add and manage certificates used for signing applications.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Add Download": {
+      "localizations": {}
+    },
+    "Add Source": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Source"
+          }
+        }
+      }
+    },
+    "Added Tweaks": {
+      "extractionState": "stale",
+      "localizations": {}
+    },
+    "Adhoc Signing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adhoc Signing"
+          }
+        }
+      }
+    },
+    "Advanced": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced"
+          }
+        }
+      }
+    },
+    "Advanced Installation Method": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Alert": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "All": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
+          }
+        }
+      }
+    },
+    "All of DefianceSign files except certificates are contained in the documents directory, here are some quick links to these.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "All Repositories": {
+      "comment": "All repositories",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Repositories"
+          }
+        }
+      }
+    },
+    "Alternative Icons": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alternative Icons"
+          }
+        }
+      }
+    },
+    "An awesome application": {
+      "comment": "Repository app has no description",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An awesome application"
+          }
+        }
+      }
+    },
+    "An unknown error occurred": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "App Features": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Features"
+          }
+        }
+      }
+    },
+    "App Icon": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "App Store": {
+      "comment": "Asami this also needs to be translated, app store isnt the same everywhere",
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Appearance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appearance"
+          }
+        }
+      }
+    },
+    "AppID Name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AppID Name"
+          }
+        }
+      }
+    },
+    "Archive & Extraction": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Available Tweaks": {
+      "extractionState": "stale",
+      "localizations": {}
+    },
+    "Bad Password": {
+      "comment": "Bad certificate password",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bad Password"
+          }
+        }
+      }
+    },
+    "Big Description": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Big Description"
+          }
+        }
+      }
+    },
+    "Bundle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "Certificate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Certificate"
+          }
+        }
+      }
+    },
+    "Certificates": {
+      "comment": "Certificates tab",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Certificates"
+          }
+        }
+      }
+    },
+    "Change": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change"
+          }
+        }
+      }
+    },
+    "Choose an action": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Choose from Files": {
+      "comment": "Select custom app icon from files",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose from Files"
+          }
+        }
+      }
+    },
+    "Choose from Photos": {
+      "comment": "Select custom app icon from photos",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose from Photos"
+          }
+        }
+      }
+    },
+    "Choose which library to use for extracting archives. ZIPFoundation is recommended for large files or when Zip is not working.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Close": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        }
+      }
+    },
+    "Compression Level": {
+      "comment": "Archive compression level",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compression Level"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy"
+          }
+        }
+      }
+    },
+    "Create": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Credits": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Credits"
+          }
+        }
+      }
+    },
+    "Customization": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Customization"
+          }
+        }
+      }
+    },
+    "Date": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date"
+          }
+        }
+      }
+    },
+    "Date Added": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date Added"
+          }
+        }
+      }
+    },
+    "Default": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        }
+      }
+    },
+    "Description": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Discard": {
+      "localizations": {}
+    },
+    "Discord": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discord"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "Dismiss": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dismiss"
+          }
+        }
+      }
+    },
+    "Display Names": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Display Names"
+          }
+        }
+      }
+    },
+    "Donate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Donate"
+          }
+        }
+      }
+    },
+    "Donations": {
+      "comment": "Title for the big donation card",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Donations"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {}
+    },
+    "Download LocalDevVPN": {
+      "comment": "StosVPN was taken down from the AppStore, here i'm referring to SideStore's alternative VPN",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download LocalDevVPN"
+          }
+        }
+      }
+    },
+    "Downloaded": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Downloaded Apps": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Downloading": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Downloads": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Dylibs": {
+      "comment": "Dylibs isn't really supposed to be translated",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dylibs"
+          }
+        }
+      }
+    },
+    "Edit": {
+      "localizations": {}
+    },
+    "Edit Value": {
+      "localizations": {}
+    },
+    "Edit value for key: %@": {
+      "localizations": {}
+    },
+    "Empty Property List": {
+      "localizations": {}
+    },
+    "Enable Liquid Glass": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enabling any protection will append a random string to the bundleidentifiers of the apps you sign, this is to ensure your Apple ID does not get flagged by Apple. However, when using a signing service you can ignore this.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enabling any protection will append a random string to the bundleidentifiers of the apps you sign, this is to ensure your Apple ID does not get flagged by Apple. However, when using a signing service you can ignore this."
+          }
+        }
+      }
+    },
+    "Enter a name for the new folder": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter a new name": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter a URL to start validation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a URL to start validation."
+          }
+        }
+      }
+    },
+    "Enter Certificate Password": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter Password": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter Password"
+          }
+        }
+      }
+    },
+    "Enter the password associated with the private key. Leave it blank if theres no password required.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter the password associated with the private key. Leave it blank if theres no password required."
+          }
+        }
+      }
+    },
+    "Enter the password for the certificate. Leave it blank if no password is required.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter the URL of the website containing the IPA file": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter the URL of the website containing the IPA file (Direct install/ITMS Services) or URL to the IPA file, supported: \n- https://example.com\n- itms-services://?url=https://example.com\n- https://example.com/app.ipa": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter URL": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Enter Website URL": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Entitlements": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entitlements"
+          }
+        }
+      }
+    },
+    "Error": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Error extracting archive: %@": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Error: %@": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Executable": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Executable"
+          }
+        }
+      }
+    },
+    "Existing Dylibs": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Existing Dylibs"
+          }
+        }
+      }
+    },
+    "Expired": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expired"
+          }
+        }
+      }
+    },
+    "Expires": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expires"
+          }
+        }
+      }
+    },
+    "Export": {
+      "comment": "Export repositories",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export"
+          }
+        }
+      }
+    },
+    "Export to Files App": {
+      "localizations": {}
+    },
+    "Extract": {
+      "localizations": {}
+    },
+    "Extracting %lld%%": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Extraction Library": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Failed to download, check your internet connection and try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failed to download, check your internet connection and try again."
+          }
+        }
+      }
+    },
+    "Failed to import to Library: %@": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Failed to package IPA: %@": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Features": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Features"
+          }
+        }
+      }
+    },
+    "Fetching...": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "File extracted successfully": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "File import error: %@": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "File name": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "File Sharing": {
+      "comment": "If app should have file sharing",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "File Sharing"
+          }
+        }
+      }
+    },
+    "Files": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Files"
+          }
+        }
+      }
+    },
+    "Filter by": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filter by"
+          }
+        }
+      }
+    },
+    "Folder name": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Force Localize": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Force Localize"
+          }
+        }
+      }
+    },
+    "Frameworks": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frameworks"
+          }
+        }
+      }
+    },
+    "Frameworks & PlugIns": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frameworks & PlugIns"
+          }
+        }
+      }
+    },
+    "Fully Local": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fully Local"
+          }
+        }
+      }
+    },
+    "General": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General"
+          }
+        }
+      }
+    },
+    "Get": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Get access to our secret Discord by donating, where we talk about future updates, betas, and potential ways to make your experience better.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get access to our secret Discord by donating, where we talk about future updates, betas, and potential ways to make your experience better."
+          }
+        }
+      }
+    },
+    "Get Info": {
+      "comment": "Show info about the app",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Info"
+          }
+        }
+      }
+    },
+    "Get started by downloading your first IPA file.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Get started by importing your first file.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Get started by importing your first IPA files.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Get started signing by importing your first certificate.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "GitHub Repository": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub Repository"
+          }
+        }
+      }
+    },
+    "Go": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Heartbeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heartbeat"
+          }
+        }
+      }
+    },
+    "Help": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Help"
+          }
+        }
+      }
+    },
+    "Hex Editor": {
+      "localizations": {}
+    },
+    "Hidden": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidden"
+          }
+        }
+      }
+    },
+    "Identifers": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifers"
+          }
+        }
+      }
+    },
+    "Identifier": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifier"
+          }
+        }
+      }
+    },
+    "Identifier Prefix": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifier Prefix"
+          }
+        }
+      }
+    },
+    "idevice warning": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is an advanced installation method that required computer, proceed?"
+          }
+        }
+      }
+    },
+    "Import": {
+      "comment": "Import repositories",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import"
+          }
+        }
+      }
+    },
+    "Import Certificate": {
+      "localizations": {}
+    },
+    "Import Certificate File": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import Certificate File (.p12)"
+          }
+        }
+      }
+    },
+    "Import Files": {
+      "localizations": {}
+    },
+    "Import from Files": {
+      "comment": "Select an app from files to import",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import from Files"
+          }
+        }
+      }
+    },
+    "Import from URL": {
+      "comment": "Select an app from a URL to import",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import from URL"
+          }
+        }
+      }
+    },
+    "Import Pairing File": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import Pairing File"
+          }
+        }
+      }
+    },
+    "Import Provisioning File": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import Provisioning File"
+          }
+        }
+      }
+    },
+    "Import to Library": {
+      "localizations": {}
+    },
+    "Imported": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imported"
+          }
+        }
+      }
+    },
+    "Importing %lld%%": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Info": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info"
+          }
+        }
+      }
+    },
+    "Information": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Install": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Install"
+          }
+        }
+      }
+    },
+    "Installation": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Installation Type": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installation Type"
+          }
+        }
+      }
+    },
+    "iPad Fullscreen": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPad Fullscreen"
+          }
+        }
+      }
+    },
+    "iTunes File Sharing": {
+      "comment": "If app should have iTunes file sharing",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iTunes File Sharing"
+          }
+        }
+      }
+    },
+    "Keep app running in background": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Library": {
+      "comment": "Library tab",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Library"
+          }
+        }
+      }
+    },
+    "Library Cell Appearance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Library Cell Appearance"
+          }
+        }
+      }
+    },
+    "Logs": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Matching Certificate's App ID": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Minimum Requirement": {
+      "comment": "Minimum app version",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimum Requirement"
+          }
+        }
+      }
+    },
+    "Misc": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misc"
+          }
+        }
+      }
+    },
+    "Modify": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modify"
+          }
+        }
+      }
+    },
+    "Move": {
+      "localizations": {}
+    },
+    "Name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        }
+      }
+    },
+    "New": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New"
+          }
+        }
+      }
+    },
+    "New Certificate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Certificate"
+          }
+        }
+      }
+    },
+    "New Folder": {
+      "localizations": {}
+    },
+    "New Text File": {
+      "localizations": {}
+    },
+    "Next": {
+      "localizations": {}
+    },
+    "Nickname (Optional)": {
+      "comment": "Certificate custom nickname",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nickname (Optional)"
+          }
+        }
+      }
+    },
+    "No Apps": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "No Certificate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Certificate"
+          }
+        }
+      }
+    },
+    "No downloaded IPAs": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "No file selected": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "No Files": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "No pairing file found, please import it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No pairing file found, please import it."
+          }
+        }
+      }
+    },
+    "No Tweaks": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Notify when download is completed": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "Only use localhost address": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only use localhost address"
+          }
+        }
+      }
+    },
+    "Open": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open"
+          }
+        }
+      }
+    },
+    "Open Archives": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Archives"
+          }
+        }
+      }
+    },
+    "Open Certificates": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Certificates"
+          }
+        }
+      }
+    },
+    "Open Documents": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Documents"
+          }
+        }
+      }
+    },
+    "Open in Files": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open in Files"
+          }
+        }
+      }
+    },
+    "Package as IPA": {
+      "localizations": {}
+    },
+    "Pairing File Guide": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pairing File Guide"
+          }
+        }
+      }
+    },
+    "Password": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Password"
+          }
+        }
+      }
+    },
+    "Password (leave empty if none)": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Pill": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pill"
+          }
+        }
+      }
+    },
+    "Platform": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Platform"
+          }
+        }
+      }
+    },
+    "Please check the password and try again.": {
+      "comment": "Bad certificate password, try again",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please check the password and try again."
+          }
+        }
+      }
+    },
+    "Please go to settings and import a valid certificate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please go to settings and import a valid certificate"
+          }
+        }
+      }
+    },
+    "Plist Editor": {
+      "localizations": {}
+    },
+    "PPQ Protection": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PPQ Protection"
+          }
+        }
+      }
+    },
+    "Prefix": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Prefix/Suffix will be added to the app name before and after the app name.": {
+      "comment": "Please explain what this is supposed to do",
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Preview": {
+      "localizations": {}
+    },
+    "Previous Versions": {
+      "comment": "Repository app previous versions",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Previous Versions"
+          }
+        }
+      }
+    },
+    "Properties": {
+      "comment": "Select custom properties for the app",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Properties"
+          }
+        }
+      }
+    },
+    "Protection": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protection"
+          }
+        }
+      }
+    },
+    "Provision All Devices": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Provision All Devices"
+          }
+        }
+      }
+    },
+    "Provisioned Devices": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Provisioned Devices"
+          }
+        }
+      }
+    },
+    "Re-sign": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Re-sign"
+          }
+        }
+      }
+    },
+    "Removal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Removal"
+          }
+        }
+      }
+    },
+    "Remove annoying alerts like these after getting beta access!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove annoying alerts like these after getting beta access!"
+          }
+        }
+      }
+    },
+    "Remove app after signed": {
+      "comment": "Save space this way",
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Remove Provisioning": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Provisioning"
+          }
+        }
+      }
+    },
+    "Remove Supported Devices": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Supported Devices"
+          }
+        }
+      }
+    },
+    "Remove this Alert": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove this Alert"
+          }
+        }
+      }
+    },
+    "Remove URL Scheme": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove URL Scheme"
+          }
+        }
+      }
+    },
+    "Remove Watch Placeholder": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Watch Placeholder"
+          }
+        }
+      }
+    },
+    "Rename": {
+      "localizations": {}
+    },
+    "Rename File": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Replace Substrate with ElleKit": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Replacement": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replacement"
+          }
+        }
+      }
+    },
+    "Repositories": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repositories"
+          }
+        }
+      }
+    },
+    "Reset": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset"
+          }
+        }
+      }
+    },
+    "Reset All": {
+      "comment": "A button that deletes all cached data and resets all settings.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Certificates": {
+      "comment": "The reset action for certificates.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Imported Apps": {
+      "comment": "The button that deletes imported apps from Core Data.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Network Cache": {
+      "localizations": {}
+    },
+    "Reset Settings": {
+      "comment": "A button that resets all user defaults.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Signed Apps": {
+      "comment": "The title of a button that deletes imported apps from Core Data.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Sources": {
+      "comment": "A button that deletes all signed apps from Core Data.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset the applications sources, certificate, apps, and general contents.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Reset the applications sources, certificates, apps, and general contents": {
+      "comment": "!!This exists twice!!",
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Reset the applications sources, certificates, apps, and general contents.": {
+      "comment": "A footer label for the \"Reset\" section in the settings view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Reset Work Cache": {
+      "comment": "A button that clears the work cache.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Restart Heartbeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restart Heartbeat"
+          }
+        }
+      }
+    },
+    "Restart Required": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restart Required"
+          }
+        }
+      }
+    },
+    "Root Dictionary": {
+      "localizations": {}
+    },
+    "Save": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        }
+      }
+    },
+    "Save App Store downloads to Downloads folder": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Search hex or ASCII": {
+      "localizations": {}
+    },
+    "See all apps from your sources": {
+      "comment": "All repositories description",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See all apps from your sources"
+          }
+        }
+      }
+    },
+    "Seems like you've gotten your hands on your pairing file!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seems like you've gotten your hands on your pairing file!"
+          }
+        }
+      }
+    },
+    "Select All": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Select Alternative Icon": {
+      "comment": "Select custom alternative app icon",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select Alternative Icon"
+          }
+        }
+      }
+    },
+    "Select entitlements file": {
+      "comment": "Select custom entitlements for the app",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select entitlements file"
+          }
+        }
+      }
+    },
+    "Semi Local": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semi Local"
+          }
+        }
+      }
+    },
+    "Server (Recommended):\nUses a locally hosted server and itms-services:// to install applications.\n\nIDevice (advanced):\nUses a VPN and a pairing file. Writes to AFC and manually calls installd, while monitoring install progress by using a callback\nAdvantage: It is very reliable, does not need SSL certificates or a externally hosted server. Rather, works similarly to a computer.": {
+      "comment": "A detailed description of the two installation methods.",
+      "isCommentAutoGenerated": true,
+      "localizations": {}
+    },
+    "Server & SSL": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Server & SSL"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "comment": "Settings tab",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        }
+      }
+    },
+    "Share": {
+      "localizations": {}
+    },
+    "Show Dylibs": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Show logs when signing": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Show patch notes": {
+      "localizations": {}
+    },
+    "Show Sheet when Exporting": {
+      "comment": "Archiving opens share sheet",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Sheet when Exporting"
+          }
+        }
+      }
+    },
+    "Show Your Support": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Your Support"
+          }
+        }
+      }
+    },
+    "Show your support by donating! If you're unable to donate, spreading the word works too!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show your support by donating! If you're unable to donate, spreading the word works too!"
+          }
+        }
+      }
+    },
+    "Sign": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign"
+          }
+        }
+      }
+    },
+    "Sign & Install": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Signed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signed"
+          }
+        }
+      }
+    },
+    "Signed Apps": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Signing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signing"
+          }
+        }
+      }
+    },
+    "Signing Options": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signing Options"
+          }
+        }
+      }
+    },
+    "Size": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Source": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Source Repo URL": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source Repo URL"
+          }
+        }
+      }
+    },
+    "Sources": {
+      "comment": "Sources tab",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sources"
+          }
+        }
+      }
+    },
+    "Sponsors": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sponsors"
+          }
+        }
+      }
+    },
+    "SSL Certificates": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SSL Certificates"
+          }
+        }
+      }
+    },
+    "Standard": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Standard"
+          }
+        }
+      }
+    },
+    "Start Signing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Signing"
+          }
+        }
+      }
+    },
+    "Store Cell Appearance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store Cell Appearance"
+          }
+        }
+      }
+    },
+    "String": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "String"
+          }
+        }
+      }
+    },
+    "String representation:": {
+      "localizations": {}
+    },
+    "Stuck? Check if you have any sources added.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Submit Feedback": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Submit Feedback"
+          }
+        }
+      }
+    },
+    "Success": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Successfully imported %@ to Library": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Successfully packaged %@ as %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Successfully packaged %1$@ as %2$@"
+          }
+        }
+      }
+    },
+    "Suffix": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Supports importing from KravaSign/DefianceSign and ESign": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supports importing from KravaSign/DefianceSign and ESign"
+          }
+        }
+      }
+    },
+    "Switch Back": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Team Identifiers": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Team Identifiers"
+          }
+        }
+      }
+    },
+    "Team Name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Team Name"
+          }
+        }
+      }
+    },
+    "Text Editor": {
+      "localizations": {}
+    },
+    "The heartbeat is activated in the background, it will restart when the app is re-opened or prompted. If the status below is pulsing, that means its healthy.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The heartbeat is activated in the background, it will restart when the app is re-opened or prompted. If the status below is pulsing, that means its healthy."
+          }
+        }
+      }
+    },
+    "These changes require a restart of the app": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "These changes require a restart of the app"
+          }
+        }
+      }
+    },
+    "This enables liquid glass for this app, this requires a restart of the app to take effect.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This option force converts apps to try to use the new liquid glass redesign iOS 26 introduced, this may not work for all applications due to differing frameworks.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This property list contains no items": {
+      "localizations": {}
+    },
+    "This will keep the app running even when you close it, helpful with download or installing ipa.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This will notify you when the download is completed.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This will remove app after signed (Downloaded apps)": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This will save the App Store downloads to the Downloads folder, turning this off will help reduce disk usage.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "This will show the logs of the signing process when you start signing.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Toggling show sheet will present a share sheet after exporting to your files.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toggling show sheet will present a share sheet after exporting to your files."
+          }
+        }
+      }
+    },
+    "Tunnel & Pairing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunnel & Pairing"
+          }
+        }
+      }
+    },
+    "Tweaks": {
+      "comment": "Select custom tweaks to install and inject",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tweaks"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "Type": {
+      "comment": "Type of files",
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Unknown": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unknown"
+          }
+        }
+      }
+    },
+    "Unsaved Changes": {
+      "localizations": {}
+    },
+    "Update SSL Certificates": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update SSL Certificates"
+          }
+        }
+      }
+    },
+    "Updated": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "URL": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "Use certiticate's app ID, this will help the app have access to features that uses certificate's entitlements.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Use last copied location": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Value": {
+      "localizations": {}
+    },
+    "Version": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
+          }
+        }
+      }
+    },
+    "View Entitlements": {
+      "comment": "Certificate listed entitlements",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View Entitlements"
+          }
+        }
+      }
+    },
+    "View Mode": {
+      "localizations": {}
+    },
+    "Visit Patreon": {
+      "comment": "Repository listed patreon",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visit Patreon"
+          }
+        }
+      }
+    },
+    "Visit Website": {
+      "comment": "Repository listed website",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visit Website"
+          }
+        }
+      }
+    },
+    "Web Browser": {
+      "localizations": {}
+    },
+    "Whether to remember the last location where a file was copied/moved to or use DefianceSign's documents folder as default.": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "Whoops!, something went wrong when extracting the file. \nMaybe try switching the extraction library in the settings?": {
+      "extractionState": "manual",
+      "localizations": {}
+    },
+    "You have unsaved changes. Do you want to save them before closing?": {
+      "localizations": {}
+    },
+    "No Certificates": {
+      "localizations": {}
+    },
+    "Server": {
+      "localizations": {}
+    },
+    "Website": {
+      "localizations": {}
+    },
+    "Based on Feather and Ksign — open-source sideloading tools.": {
+      "localizations": {}
+    },
+    "DefianceSign is a secure, open-source IPA signer for iPhone and iPad.\n\n- Import your own Apple Developer certificate\n- Sign and install IPA files on-device\n- No bundled certificates or telemetry\n- Based on Feather and Ksign": {
+      "localizations": {}
+    },
+    "Uses a local HTTPS server and itms-services:// to install signed IPAs.": {
+      "localizations": {}
+    },
+    "Uses VPN tunnel and AFC to install directly via installd.": {
+      "localizations": {}
+    }
+  },
+  "version": "1.1"
+}

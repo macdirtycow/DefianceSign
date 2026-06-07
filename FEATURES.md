@@ -1,6 +1,6 @@
-# MapleSign functies
+# DefianceSign functies
 
-MapleSign erft de volledige Ksign/Feather feature-set. Overzicht:
+DefianceSign erft de volledige Ksign/Feather feature-set. Overzicht:
 
 ## Kern (MVP)
 

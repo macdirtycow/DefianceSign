@@ -1,13 +1,14 @@
-NAME := MapleSign
+NAME := DefianceSign
 PLATFORM := iphoneos
-SCHEMES := MapleSign
+SCHEME := MapleSign
+IPA_NAME := DefianceSign
 TMP := $(TMPDIR)/$(NAME)
 STAGE := $(TMP)/stage
 APP := $(TMP)/Build/Products/Release-$(PLATFORM)
 
-.PHONY: all clean $(SCHEMES)
+.PHONY: all clean $(IPA_NAME)
 
-all: $(SCHEMES)
+all: $(IPA_NAME)
 
 clean:
 	rm -rf "$(TMP)"
@@ -24,10 +25,10 @@ deps:
 	rm -f deps/server.key1 deps/server.key2
 	echo "*.backloop.dev" > deps/commonName.txt
 
-$(SCHEMES): deps
+$(IPA_NAME): deps
 	xcodebuild \
-	    -project MapleSign.xcodeproj \
-	    -scheme "$@" \
+	    -project DefianceSign.xcodeproj \
+	    -scheme "$(SCHEME)" \
 	    -configuration Release \
 	    -arch arm64 \
 	    -sdk $(PLATFORM) \
@@ -40,15 +41,19 @@ $(SCHEMES): deps
 	rm -rf "$(STAGE)/"
 	mkdir -p "$(STAGE)/Payload"
 
-	mv "$(APP)/$@.app" "$(STAGE)/Payload/$@.app"
+	mv "$(APP)/DefianceSign.app" "$(STAGE)/Payload/DefianceSign.app"
 
-	chmod -R 0755 "$(STAGE)/Payload/$@.app"
-	codesign --force --sign - --timestamp=none "$(STAGE)/Payload/$@.app"
+	chmod -R 0755 "$(STAGE)/Payload/DefianceSign.app"
 
-	cp deps/* "$(STAGE)/Payload/$@.app/" || true
+	cp deps/* "$(STAGE)/Payload/DefianceSign.app/" || true
 
-	rm -rf "$(STAGE)/Payload/$@.app/_CodeSignature"
+	# Strip every signature (app + frameworks + dylibs) so signers start clean
+	find "$(STAGE)/Payload/DefianceSign.app" \( -name "*.framework" -o -name "*.dylib" -o -name "DefianceSign" \) -exec codesign --remove-signature {} \; 2>/dev/null || true
+	codesign --remove-signature "$(STAGE)/Payload/DefianceSign.app" 2>/dev/null || true
+	rm -rf "$(STAGE)/Payload/DefianceSign.app"/_CodeSignature
+	rm -rf "$(STAGE)/Payload/DefianceSign.app"/Frameworks/*/_CodeSignature
+	find "$(STAGE)/Payload/DefianceSign.app" -depth -name "_CodeSignature" -type d -exec rm -rf {} + 2>/dev/null || true
 	ln -sf "$(STAGE)/Payload" Payload
 	
 	mkdir -p packages
-	zip -r9 "packages/$@.ipa" Payload
+	zip -r9 "packages/$(IPA_NAME).ipa" Payload

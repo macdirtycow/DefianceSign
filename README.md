@@ -1,10 +1,10 @@
-# MapleSign
+# DefianceSign
 
 Veilige, open-source IPA-signer en installer voor iPhone en iPad. Fork van [Ksign](https://github.com/Nyasami/Ksign) (gebaseerd op [Feather](https://github.com/khcrysalis/Feather)).
 
-**Website:** [maplesign.net](https://maplesign.net)
+**Website:** [defiancesign.com](https://defiancesign.com)
 
-## Waarom MapleSign?
+## Waarom DefianceSign?
 
 - **Open source** — volledig transparante code op GitHub
 - **Geen Chinese backend** — geen telemetry, geen gedeelde certificaten
@@ -17,14 +17,14 @@ Veilige, open-source IPA-signer en installer voor iPhone en iPad. Fork van [Ksig
 - iPhone of iPad met iOS 16+
 - Mac met Xcode 15+ (alleen voor bouwen)
 - [Apple Developer-account](https://developer.apple.com) ($99/jaar)
-- Eenmalige installatie van MapleSign zelf via Sideloadly, AltStore of SideStore
+- Eenmalige installatie van DefianceSign zelf via Sideloadly, AltStore of SideStore
 
 ## Certificaat importeren
 
 1. Ga naar [developer.apple.com](https://developer.apple.com) → Certificates → maak een iOS Development/Distribution certificaat
 2. Maak een Provisioning Profile voor je devices
 3. Exporteer `.p12` vanuit Keychain Access op je Mac
-4. Open MapleSign → Settings → Certificates → importeer `.p12` en `.mobileprovision`
+4. Open DefianceSign → Settings → Certificates → importeer `.p12` en `.mobileprovision`
 
 Je p12-wachtwoord wordt opgeslagen in de iOS Keychain, niet in platte tekst.
 
@@ -32,30 +32,30 @@ Zie [scripts/export-p12-guide.md](scripts/export-p12-guide.md) voor een uitgebre
 
 ## Download
 
-Download de nieuwste `.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/MapleSign/releases/tag/beta).
+Download de nieuwste `.ipa` van [GitHub Releases (beta)](https://github.com/macdirtycow/DefianceSign/releases/tag/beta).
 
-Website-bron staat in [`website/`](website/) — deploy naar [maplesign.net](https://maplesign.net).
+Website-bron staat in [`website/`](website/) — deploy naar [defiancesign.com](https://defiancesign.com).
 
 ## Bouwen
 
 ```bash
-git clone https://github.com/maplesign/MapleSign --recursive
-cd MapleSign
+git clone https://github.com/defiancesign/DefianceSign --recursive
+cd DefianceSign
 ./scripts/build-release.sh
-# Output: packages/MapleSign.ipa (~13 MB)
+# Output: packages/DefianceSign.ipa (~13 MB)
 ```
 
 Of handmatig:
 
 ```bash
-make MapleSign
+make DefianceSign
 ```
 
 De build maakt een **unsigned IPA** die je daarna via Sideloadly/AltStore installeert.
 
 ## Beveiliging
 
-MapleSign doet **niet**:
+DefianceSign doet **niet**:
 
 - Ingebouwde gratis/gedeelde certificaten importeren
 - Anti-revoke DNS of OCSP-blokkering
@@ -73,4 +73,4 @@ GPL-3.0 — zie [LICENSE](LICENSE). Gebaseerd op Feather (GPL-3.0) en Ksign (GPL
 
 ## Disclaimer
 
-MapleSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat. Misbruik van enterprise-certificaten schendt Apple's voorwaarden.
+DefianceSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat. Misbruik van enterprise-certificaten schendt Apple's voorwaarden.
