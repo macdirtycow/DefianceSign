@@ -1,42 +1,64 @@
+# MapleSign
 
-<img src="https://github.com/user-attachments/assets/986892f9-c32f-448d-a24e-ba8659203fbf" height="200">
+Veilige, open-source IPA-signer en installer voor iPhone en iPad. Fork van [Ksign](https://github.com/Nyasami/Ksign) (gebaseerd op [Feather](https://github.com/khcrysalis/Feather)).
 
-# Ksign 
-[![GitHub Release](https://img.shields.io/github/v/release/nyasami/ksign?style=for-the-badge&color=3c94fc)](https://github.com/nyasami/ksign/releases/latest) 
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/nyasami/ksign/total?style=for-the-badge&color=6bc563)](https://github.com/nyasami/ksign/releases)
+**Website:** [maplesign.net](https://maplesign.net)
 
-Yet another codesigning app, have you ever wondered what if Feather and Esign had a child?
+## Waarom MapleSign?
 
-## Why?
-Since Esign is end of service so people been moving to other signing apps, but Esign was a really big part of the community, so with the help of Feather as the base app, I tried to recreate Esign as close as possible so you guys can easier to get familiar and less app switching for smooth sideloading.
+- **Open source** — volledig transparante code op GitHub
+- **Geen Chinese backend** — geen telemetry, geen gedeelde certificaten
+- **Eigen certificaat** — importeer je eigen `.p12` + `.mobileprovision` van je Apple Developer-account
+- **Lokaal en veilig** — certificaatwachtwoorden in iOS Keychain, data blijft op je device
+- **iPhone + iPad** — universele SwiftUI-app
 
-Another reason is this app was built specifically for Khoindvn to share his certificates, allowing more people to access to sideloading without even have to buy a certificate!
+## Vereisten
 
-## Help
-You can create your Issue at [Issue](https://github.com/Nyasami/Ksign-public/issues), this will also be the place for you to request a new feature so feel free to make one!
+- iPhone of iPad met iOS 16+
+- Mac met Xcode 15+ (alleen voor bouwen)
+- [Apple Developer-account](https://developer.apple.com) ($99/jaar)
+- Eenmalige installatie van MapleSign zelf via Sideloadly, AltStore of SideStore
 
-You can also join Ksign Discord [here](https://discord.gg/sfbZfQzVdQ) for better communication.
+## Certificaat importeren
+
+1. Ga naar [developer.apple.com](https://developer.apple.com) → Certificates → maak een iOS Development/Distribution certificaat
+2. Maak een Provisioning Profile voor je devices
+3. Exporteer `.p12` vanuit Keychain Access op je Mac
+4. Open MapleSign → Settings → Certificates → importeer `.p12` en `.mobileprovision`
+
+Zie [scripts/export-p12-guide.md](scripts/export-p12-guide.md) voor een uitgebreide handleiding.
 
 ## Download
-Go to [Releases](https://github.com/Nyasami/Ksign-public/releases) and download the newest ipa from there.
 
-## Star History
+Download de nieuwste `.ipa` van [GitHub Releases](https://github.com/maplesign/MapleSign/releases).
 
-<a href="https://www.star-history.com/#Nyasami/Ksign-public&Timeline">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Nyasami/Ksign-public&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Nyasami/Ksign-public&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Nyasami/Ksign-public&type=Timeline" />
- </picture>
-</a>
+## Bouwen
 
-## Special thanks
-- Feather by [claration](https://github.com/claration/Feather)  
+```bash
+git clone https://github.com/maplesign/MapleSign --recursive
+cd MapleSign
+make MapleSign
+# Output: packages/MapleSign.ipa
+```
 
-- Product manager Khoindvn
+## Beveiliging
 
-- And you! for using the app ❤️
+MapleSign doet **niet**:
+
+- Ingebouwde gratis/gedeelde certificaten importeren
+- Anti-revoke DNS of OCSP-blokkering
+- Data naar externe servers sturen
+
+## Licentie
+
+GPL-3.0 — zie [LICENSE](LICENSE). Gebaseerd op Feather (GPL-3.0) en Ksign (GPL-3.0).
+
+## Credits
+
+- [Feather](https://github.com/khcrysalis/Feather) door samara / claration
+- [Ksign](https://github.com/Nyasami/Ksign) door Nyasami
+- [zsign](https://github.com/xtool-org/zsign) signing engine
 
 ## Disclaimer
 
-This project is maintained here, on GitHub. Releases are distributed here, on GitHub. We do not currently have a project website outside of this repository. Please make sure to avoid any sites that host our software as they are often malicious and are there to mislead to user.
+MapleSign is geen App Store-app. Gebruik alleen je eigen Apple Developer-certificaat. Misbruik van enterprise-certificaten schendt Apple's voorwaarden.

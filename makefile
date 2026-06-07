@@ -1,6 +1,6 @@
-NAME := Ksign
+NAME := MapleSign
 PLATFORM := iphoneos
-SCHEMES := Ksign
+SCHEMES := MapleSign
 TMP := $(TMPDIR)/$(NAME)
 STAGE := $(TMP)/stage
 APP := $(TMP)/Build/Products/Release-$(PLATFORM)
@@ -26,7 +26,7 @@ deps:
 
 $(SCHEMES): deps
 	xcodebuild \
-	    -project Ksign.xcodeproj \
+	    -project MapleSign.xcodeproj \
 	    -scheme "$@" \
 	    -configuration Release \
 	    -arch arm64 \
