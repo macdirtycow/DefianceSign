@@ -35,42 +35,6 @@ struct AppLibraryView: View {
 					SourceAppsView(fromAppStore: true, object: Array(_sources), viewModel: _viewModel)
 				}
 			}
-			.navigationTitle("App Library")
-			.safeAreaInset(edge: .top) {
-				VStack(spacing: 8) {
-					MapleSignBrandHeader(
-						subtitle: _sources.isEmpty
-							? "Add a source to browse apps"
-							: "\(_loadedAppCount) apps from \(_sources.count) source\(_sources.count == 1 ? "" : "s")",
-						compact: true
-					)
-					.padding(.horizontal)
-
-					if !_sources.isEmpty {
-						ScrollView(.horizontal, showsIndicators: false) {
-							HStack(spacing: 8) {
-								ForEach(_sources, id: \.identifier) { source in
-									_sourceChip(source)
-								}
-								Button {
-									_isAddingSource = true
-								} label: {
-									Label("Add Source", systemImage: "plus.circle.fill")
-										.font(.caption.weight(.semibold))
-										.padding(.horizontal, 12)
-										.padding(.vertical, 6)
-										.background(Color.mapleAccent.opacity(0.15))
-										.foregroundStyle(Color.mapleAccent)
-										.clipShape(Capsule())
-								}
-							}
-							.padding(.horizontal)
-						}
-					}
-				}
-				.padding(.bottom, 8)
-				.background(.ultraThinMaterial)
-			}
 		}
 		.task(id: Array(_sources)) {
 			await _viewModel.fetchSources(_sources, refresh: _sources.count > 0)
@@ -79,26 +43,6 @@ struct AppLibraryView: View {
 			SourcesAddView()
 				.presentationDetents([.medium])
 		}
-	}
-
-	@ViewBuilder
-	private func _sourceChip(_ source: AltSource) -> some View {
-		let count = _viewModel.sources[source]?.apps.count ?? 0
-		HStack(spacing: 4) {
-			Text(source.name ?? "Source")
-				.lineLimit(1)
-			Text("\(count)")
-				.font(.caption2.weight(.bold))
-				.padding(.horizontal, 5)
-				.padding(.vertical, 2)
-				.background(Color.mapleAccent.opacity(0.2))
-				.clipShape(Capsule())
-		}
-		.font(.caption.weight(.medium))
-		.padding(.horizontal, 10)
-		.padding(.vertical, 6)
-		.background(Color(uiColor: .tertiarySystemFill))
-		.clipShape(Capsule())
 	}
 
 	@ViewBuilder
@@ -176,6 +120,7 @@ struct AppLibraryView: View {
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.padding()
+		.navigationTitle("App Library")
 	}
 
 	private func _addBuiltInSource() {

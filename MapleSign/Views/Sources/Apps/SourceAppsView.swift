@@ -88,7 +88,7 @@ struct SourceAppsView: View {
             }
         }
         .navigationTitle(_navigationTitle)
-        .searchable(text: $_searchText, placement: .platform())
+        .searchable(text: $_searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: Text("Search"))
         .toolbarTitleMenu {
             if
                 let _sources,

@@ -65,10 +65,6 @@ struct LibraryView: View {
     var body: some View {
 		NBNavigationView(.localized("Library")) {
 			VStack(spacing: 0) {
-				MapleSignBrandHeader(subtitle: .localized("Library"), compact: true)
-					.padding(.horizontal)
-					.padding(.top, 4)
-
 				Picker("", selection: $_selectedTab) {
 					Text(.localized("Downloaded Apps")).tag(0)
 					Text(.localized("Signed Apps")).tag(1)
@@ -115,7 +111,7 @@ struct LibraryView: View {
 					}
 				}
 			}
-			.searchable(text: $_searchText, placement: .platform())
+			.searchable(text: $_searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: Text("Search"))
             .overlay {
                 if
                     _filteredSignedApps.isEmpty,
@@ -138,7 +134,11 @@ struct LibraryView: View {
             }
 			.toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    EditButton()
+					Button(_isEditMode.isEditing ? "Done" : "Edit") {
+						withAnimation {
+							_isEditMode = _isEditMode.isEditing ? .inactive : .active
+						}
+					}
                 }
                 if _isEditMode.isEditing {
 					ToolbarItemGroup(placement: .topBarTrailing) {

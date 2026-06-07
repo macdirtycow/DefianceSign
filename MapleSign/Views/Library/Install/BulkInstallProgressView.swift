@@ -37,11 +37,7 @@ struct BulkInstallProgressView: View {
         }
         .onReceive(viewModel.$status) { newStatus in
             if case .ready = newStatus {
-                if _serverMethod == 0 {
-                    UIApplication.shared.open(URL(string: installer.iTunesLink)!)
-                } else if _serverMethod == 1 {
-                    _isWebviewPresenting = true
-                }
+				_beginInstall()
             }
             
             if case .installing = newStatus {
@@ -77,6 +73,26 @@ struct BulkInstallProgressView: View {
         }
     }
     
+	private func _beginInstall() {
+		if _serverMethod == 1 {
+			_isWebviewPresenting = true
+			return
+		}
+
+		let link = installer.iTunesLinkExternal
+		if let url = URL(string: link) {
+			UIApplication.shared.open(url)
+		} else if let url = URL(string: installer.iTunesLink) {
+			UIApplication.shared.open(url)
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			if case .ready = viewModel.status {
+				_isWebviewPresenting = true
+			}
+		}
+	}
+
     private func _install() {
         Task.detached {
             do {

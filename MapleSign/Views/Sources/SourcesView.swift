@@ -60,7 +60,7 @@ struct SourcesView: View {
 					}
 				}
 			}
-			.searchable(text: $_searchText, placement: .platform())
+			.searchable(text: $_searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: Text("Search"))
             .overlay {
                 if _filteredSources.isEmpty {
                     if #available(iOS 17, *) {

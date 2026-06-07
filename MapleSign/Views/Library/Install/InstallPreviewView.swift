@@ -52,11 +52,7 @@ struct InstallPreviewView: View {
 		}
 		.onReceive(viewModel.$status) { newStatus in
 			if case .ready = newStatus {
-				if _serverMethod == 0 {
-					UIApplication.shared.open(URL(string: installer.iTunesLink)!)
-				} else if _serverMethod == 1 {
-					_isWebviewPresenting = true
-				}
+				_beginInstall(from: newStatus)
 			}
             
             if case .installing = newStatus {
@@ -101,6 +97,28 @@ struct InstallPreviewView: View {
 			.animation(.smooth, value: viewModel.statusImage)
 	}
 	
+	private func _beginInstall(from status: InstallerStatusViewModel.InstallerStatus) {
+		guard case .ready = status else { return }
+
+		if _serverMethod == 1 {
+			_isWebviewPresenting = true
+			return
+		}
+
+		let link = installer.iTunesLinkExternal
+		if let url = URL(string: link) {
+			UIApplication.shared.open(url)
+		} else if let url = URL(string: installer.iTunesLink) {
+			UIApplication.shared.open(url)
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			if case .ready = viewModel.status {
+				_isWebviewPresenting = true
+			}
+		}
+	}
+
 	private func _install() {
         guard isSharing || app.identifier != Bundle.main.bundleIdentifier! || _installationMethod == 1 else {
             UIAlertController.showAlertWithOk(

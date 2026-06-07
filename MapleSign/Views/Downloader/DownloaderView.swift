@@ -80,7 +80,7 @@ struct DownloaderView: View {
                     }
                 }
             }
-            .searchable(text: $_searchText, placement: .platform())
+            .searchable(text: $_searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: Text("Search"))
             .toolbar {
                 NBToolbarButton(
                     "Add",

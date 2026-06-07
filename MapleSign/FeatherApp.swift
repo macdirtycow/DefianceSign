@@ -81,7 +81,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        
+		MapleSignLocale.applyEnglish()
+
         _createPipeline()
         _createSourcesDirectory()
         if !UserDefaults.standard.bool(forKey: "hasInitializedBuiltInSources") {
@@ -93,6 +94,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         _copyServerCertificates()
 		Storage.shared.migrateCertificatePasswordsIfNeeded()
+
+#if SERVER
+		_downloadSSLCertificates()
+#endif
         return true
     }
     
