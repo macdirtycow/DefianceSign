@@ -44,7 +44,7 @@
     <resources>
         <image name="DefianceSignLogo" width="512" height="512"/>
         <namedColor name="AccentColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.4823529411764706" green="0.6235294117647059" blue="0.9098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -5,7 +5,7 @@
     "description": "AltStore source for DefianceSign — open-source IPA signer for iPhone and iPad",
     "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
     "website": "https://defiancesign.com",
-    "tintColor": "FF2D55",
+    "tintColor": "7B9FE8",
     "apps": [
         {
             "name": "DefianceSign",
@@ -14,7 +14,7 @@
             "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
             "localizedDescription": "Open-source IPA signer for iPhone and iPad. Your certificate stays on your device.",
             "subtitle": "Sign apps. Your rules.",
-            "tintColor": "FF2D55",
+            "tintColor": "7B9FE8",
             "category": "utilities",
             "versions": [
                 {

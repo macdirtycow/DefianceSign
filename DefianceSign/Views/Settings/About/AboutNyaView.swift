@@ -25,12 +25,12 @@ struct AboutNyaView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 88, height: 88)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                        .shadow(color: Color.defianceAccent.opacity(0.4), radius: 12, y: 6)
+                        .shadow(color: Color.defianceAccent.opacity(0.2), radius: 8, y: 4)
 
                     Text("DefianceSign")
                         .font(.largeTitle)
-                        .bold()
-                        .foregroundStyle(Color.defianceAccent)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.primary)
                     
                     HStack(spacing: 4) {
                         Text("Version")
