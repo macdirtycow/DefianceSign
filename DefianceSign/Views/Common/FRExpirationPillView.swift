@@ -21,7 +21,7 @@ struct FRExpirationPillView: View {
 		
 		Text(labelText)
 			.lineLimit(0)
-			.font(.headline.bold())
+			.font(.headline.weight(.semibold))
 			.foregroundStyle((showOverlay || expiration == nil) ? .accent : .white)
 			.padding(.horizontal, 12)
 			.padding(.vertical, 6)

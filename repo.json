@@ -1,7 +1,7 @@
 {
     "name": "DefianceSign Repository",
     "identifier": "net.defiancesign.app-repo",
-    "subtitle": "Sign IPAs on your own terms",
+    "subtitle": "Sign IPAs on your device",
     "description": "AltStore source for DefianceSign — open-source IPA signer for iPhone and iPad",
     "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
     "website": "https://defiancesign.com",
@@ -13,23 +13,23 @@
             "developerName": "DefianceSign",
             "iconURL": "https://raw.githubusercontent.com/macdirtycow/DefianceSign/main/DefianceSign/Resources/Assets.xcassets/DefianceSignLogo.imageset/DefianceSignLogo.png",
             "localizedDescription": "Open-source IPA signer for iPhone and iPad. Your certificate stays on your device.",
-            "subtitle": "Sign apps. Your rules.",
+            "subtitle": "Sign apps on your device.",
             "tintColor": "7B9FE8",
             "category": "utilities",
             "versions": [
                 {
-                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.1/DefianceSign.ipa",
+                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa",
                     "size": 19000000,
-                    "version": "1.1.1",
+                    "version": "1.1.3",
                     "buildVersion": "1",
-                    "date": "2026-06-08T12:00:00+02:00",
-                    "localizedDescription": "Crimson accent color, English docs, removed MapleSign branding.",
+                    "date": "2026-06-08T18:00:00+02:00",
+                    "localizedDescription": "Softer logo, periwinkle accent, calmer in-app UI.",
                     "minOSVersion": "16.0"
                 }
             ],
             "appPermissions": {},
             "screenshotURLs": [],
-            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.1/DefianceSign.ipa"
+            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa"
         }
     ]
 }

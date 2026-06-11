@@ -42,7 +42,7 @@ struct AppLibraryView: View {
 						Button("Add Custom Source", systemImage: "plus") {
 							_isAddingSource = true
 						}
-						Button("Add DefianceSign Source", systemImage: "bolt.shield") {
+						Button("Add DefianceSign Source", systemImage: "checkmark.seal") {
 							_addSource(DefianceSignConfig.altStoreRepo)
 						}
 						Divider()
@@ -161,7 +161,7 @@ struct AppLibraryView: View {
 				.font(.system(size: 48))
 				.foregroundStyle(.secondary)
 			Text(title)
-				.font(.title2.bold())
+				.font(.title2.weight(.semibold))
 			Text(message)
 				.font(.subheadline)
 				.foregroundStyle(.secondary)

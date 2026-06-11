@@ -16,7 +16,7 @@ struct DefianceSignBrandHeader: View {
 				.aspectRatio(contentMode: .fit)
 				.frame(width: compact ? 36 : 48, height: compact ? 36 : 48)
 				.clipShape(RoundedRectangle(cornerRadius: compact ? 8 : 11, style: .continuous))
-				.shadow(color: Color.defianceAccent.opacity(0.18), radius: 6, y: 2)
+				.shadow(color: Color.defianceAccent.opacity(0.12), radius: 4, y: 2)
 
 			VStack(alignment: .leading, spacing: 2) {
 				Text("DefianceSign")

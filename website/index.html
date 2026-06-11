@@ -18,7 +18,7 @@
       --muted: #9b95ad;
       --accent: #7b9fe8;
       --accent2: #5b7fd4;
-      --glow: rgba(255,45,85,0.35);
+      --glow: rgba(123,159,232,0.28);
     }
     * { box-sizing: border-box; margin: 0; }
     html { scroll-behavior: smooth; }
@@ -32,8 +32,8 @@
     .mesh {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(255,45,85,0.18), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(255,107,53,0.12), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(123,159,232,0.16), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(91,127,212,0.10), transparent 50%),
         radial-gradient(ellipse 50% 30% at 50% 100%, rgba(120,60,255,0.08), transparent 60%);
     }
     .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
@@ -90,7 +90,7 @@
 
     .phone {
       position: relative; padding: 24px;
-      background: linear-gradient(160deg, rgba(255,45,85,0.08), rgba(255,255,255,0.02));
+      background: linear-gradient(160deg, rgba(123,159,232,0.08), rgba(255,255,255,0.02));
       border: 1px solid var(--line); border-radius: 28px;
       box-shadow: 0 40px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
     }
@@ -108,7 +108,7 @@
     .phone-item:last-child { border: none; }
     .phone-icon {
       width: 42px; height: 42px; border-radius: 11px;
-      background: linear-gradient(135deg, var(--accent), #c41d4a);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       display: grid; place-items: center; font-family: Syne; font-weight: 800; color: #fff;
     }
     .phone-item strong { display: block; font-size: 0.92rem; }
@@ -127,7 +127,7 @@
       padding: 28px; border-radius: 20px; background: var(--surface);
       border: 1px solid var(--line); transition: border-color .2s, transform .2s;
     }
-    .card:hover { border-color: rgba(255,45,85,0.35); transform: translateY(-2px); }
+    .card:hover { border-color: rgba(123,159,232,0.35); transform: translateY(-2px); }
     .card h3 { font-family: Syne; font-size: 1rem; margin-bottom: 10px; }
     .card p { color: var(--muted); font-size: 0.92rem; }
 
@@ -169,7 +169,7 @@
     <header class="hero">
       <div>
         <p class="eyebrow">Open source · iOS 16+</p>
-        <h1>Sign apps.<br><span>Your rules.</span></h1>
+        <h1>Sign apps.<br><span>On your device.</span></h1>
         <p>DefianceSign is an on-device IPA signer for iPhone and iPad. Import your own Apple Developer certificate, sign locally, and install — no cloud, no shared keys.</p>
         <div class="hero-btns">
           <a class="btn btn-primary" href="https://github.com/macdirtycow/DefianceSign/releases/latest">Get latest IPA</a>
@@ -202,7 +202,7 @@
     </header>
 
     <section>
-      <h2>Built different</h2>
+      <h2>Why DefianceSign</h2>
       <div class="grid3">
         <div class="card">
           <h3>Your keys, your device</h3>

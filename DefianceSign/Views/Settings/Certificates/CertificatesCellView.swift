@@ -59,7 +59,7 @@ extension CertificatesCellView {
 		var pills: [NBPillItem] = []
 		
 		if cert.ppQCheck == true {
-			pills.append(NBPillItem(title: "PPQCheck", icon: "checkmark.shield", color: .red))
+			pills.append(NBPillItem(title: "PPQCheck", icon: "checkmark.shield", color: .orange))
 		}
         
         if cert.revoked {
