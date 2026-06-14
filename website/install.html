@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install DefianceSign — one-time web signer</title>
+  <meta name="description" content="Install DefianceSign on iPhone or iPad without a Mac. Your certificate is used once and destroyed immediately.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mesh"></div>
+  <div class="wrap wrap--narrow">
+    <nav class="site-nav">
+      <a class="logo" href="index.html"><img src="assets/logo.svg" alt="">DefianceSign</a>
+      <div class="nav-links">
+        <a class="back" href="index.html">← Home</a>
+      </div>
+    </nav>
+
+    <header class="page-head">
+      <h1>Install without a Mac</h1>
+      <p class="lead">One-time bootstrap: we sign <strong>only DefianceSign.ipa</strong> with your certificate, then delete your files from the server.</p>
+    </header>
+
+    <div class="steps-inline">
+      <div class="step-pill"><strong>1. Upload</strong>.p12 + profile</div>
+      <div class="step-pill"><strong>2. Sign</strong>Matches your App ID</div>
+      <div class="step-pill"><strong>3. Install</strong>Safari on iOS</div>
+    </div>
+
+    <div class="notice">
+      <strong>Safari on iPhone or iPad.</strong>
+      Use any iOS Development or Ad Hoc certificate and profile with your device UDID.
+      We re-sign DefianceSign to your App ID automatically. Files are destroyed after signing.
+    </div>
+
+    <form id="install-form" class="install-form">
+      <label>
+        Apple certificate (.p12)
+        <span class="hint">Exported from Keychain Access on your Mac</span>
+        <input type="file" name="p12" accept=".p12" required>
+      </label>
+      <label>
+        Provisioning profile (.mobileprovision)
+        <span class="hint">Development or Ad Hoc — must include your device UDID</span>
+        <input type="file" name="mobileprovision" accept=".mobileprovision" required>
+      </label>
+      <label>
+        .p12 password
+        <input type="password" name="password" autocomplete="off" required>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="consent" value="true" required>
+        <span>I understand my certificate is used once to install DefianceSign only, then destroyed on the server.</span>
+      </label>
+      <button type="submit" id="submit-btn">Sign &amp; prepare install</button>
+    </form>
+
+    <div id="status" role="status" aria-live="polite"></div>
+
+    <ul class="facts">
+      <li>After install, import the same certificate into DefianceSign to sign other IPAs locally.</li>
+      <li>Development certificates expire after 7 days — use this page again to re-install.</li>
+      <li>DefianceSign cannot update itself; use this page or Sideloadly for updates.</li>
+    </ul>
+
+    <footer class="site-footer">
+      <div class="footer-meta">
+        <span class="footer-powered">
+          Powered by
+          <a href="https://qadbak.com" rel="noopener noreferrer">Qadbak</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://omiiba.dev" rel="noopener noreferrer">Omiiba</a>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="https://github.com/macdirtycow/DefianceSign">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const API_BASE = window.DEFIANCE_SIGN_API || window.location.origin;
+    const form = document.getElementById("install-form");
+    const status = document.getElementById("status");
+    const submitBtn = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.className = "";
+      status.textContent = "Signing DefianceSign.ipa…";
+      submitBtn.disabled = true;
+
+      const data = new FormData(form);
+      data.set("consent", form.consent.checked ? "true" : "false");
+
+      try {
+        const res = await fetch(`${API_BASE}/api/bootstrap/sign`, {
+          method: "POST",
+          body: data,
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const detail = json.detail;
+          const msg = typeof detail === "string"
+            ? detail
+            : Array.isArray(detail)
+              ? detail.map((d) => d.msg || d).join(", ")
+              : `Request failed (${res.status})`;
+          throw new Error(msg);
+        }
+
+        status.className = "ok";
+        status.innerHTML = `
+          Ready. Tap install below (Safari will prompt you).
+          <br><small>Link expires in ${json.expiresInSeconds || 600} seconds.</small>
+          <br><a class="install-btn" href="${json.installUrl}">Install DefianceSign</a>
+        `;
+
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          setTimeout(() => { window.location.href = json.installUrl; }, 800);
+        }
+      } catch (err) {
+        status.className = "error";
+        status.textContent = err.message || "Something went wrong.";
+      } finally {
+        submitBtn.disabled = false;
+        form.password.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

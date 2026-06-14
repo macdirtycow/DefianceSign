@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Documentation — DefianceSign</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="mesh"></div>
-  <div class="wrap">
-    <nav>
+  <div class="wrap wrap--docs">
+    <nav class="site-nav">
       <a class="logo" href="index.html"><img src="assets/logo.svg" alt=""> DefianceSign</a>
       <div class="nav-links">
         <a href="index.html">Home</a>
+        <a href="install.html">Web install</a>
         <a class="btn btn-primary" href="https://github.com/macdirtycow/DefianceSign/releases/latest">Download</a>
       </div>
     </nav>
@@ -22,15 +25,15 @@
       <h1>Documentation</h1>
       <article>
         <h2>Install DefianceSign</h2>
-        <p>Download <code>DefianceSign.ipa</code> from GitHub Releases. Sideload with Sideloadly, ESign, or SideStore using your Apple Development certificate and a provisioning profile that includes your device UDID.</p>
-        <p>Your App ID must be <strong>net.defiancesign.app</strong> (or change the bundle ID when signing to match your profile).</p>
+        <p>Download <code>DefianceSign.ipa</code> from GitHub Releases, or use <a href="install.html">install.html</a> in Safari on your device — no Mac required.</p>
+        <p>On the web installer you can use <strong>any App ID</strong> on your developer account. The server re-signs DefianceSign to match your provisioning profile.</p>
       </article>
       <article>
         <h2>Certificate setup</h2>
         <ol>
           <li>Create an <strong>iOS App Development</strong> certificate on developer.apple.com</li>
-          <li>Create App ID <code>net.defiancesign.app</code></li>
-          <li>Create a Development profile with your cert, App ID, and iPad/iPhone</li>
+          <li>Create any App ID (or use a team wildcard profile)</li>
+          <li>Create a Development or Ad Hoc profile with your cert, App ID, and iPad/iPhone</li>
           <li>Export .p12 from Keychain Access and import both files in DefianceSign</li>
         </ol>
       </article>
@@ -43,6 +46,22 @@
         <p>After install: Settings → General → VPN &amp; Device Management → tap your developer profile → Trust.</p>
       </article>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-meta">
+        <span>© 2026 DefianceSign</span>
+        <span class="footer-powered">
+          Powered by
+          <a href="https://qadbak.com" rel="noopener noreferrer">Qadbak</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://omiiba.dev" rel="noopener noreferrer">Omiiba</a>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="install.html">Web install</a>
+        <a href="https://github.com/macdirtycow/DefianceSign">GitHub</a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

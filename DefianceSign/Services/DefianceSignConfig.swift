@@ -15,7 +15,12 @@ struct OptionalLibrarySource: Identifiable {
 enum DefianceSignConfig {
 	static let bundleIdentifier = "net.defiancesign.app"
 	static let website = "https://defiancesign.com"
+	static let installURL = "https://defiancesign.com/install.html"
 	static let githubRepo = "https://github.com/macdirtycow/DefianceSign"
+	static let githubRepoURL = URL(string: "https://github.com/macdirtycow/DefianceSign")!
+	static let donationURL = URL(string: "https://paypal.me/macdirtycow")!
+	static let qadbakURL = URL(string: "https://qadbak.com")!
+	static let omiibaURL = URL(string: "https://omiiba.dev")!
 	static let altStoreRepo = "https://raw.githubusercontent.com/macdirtycow/DefianceSign/refs/heads/main/repo.json"
 	static let plistProxyBase = "https://api.palera.in/genPlist"
 	static let sslPackURL = "https://backloop.dev/pack.json"

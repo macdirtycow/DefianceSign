@@ -40,6 +40,8 @@ struct SettingsView: View {
 				.listRowBackground(Color.clear)
 				.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
 
+				SettingsDonationCellView()
+
 				_feedback()
 				
 				Section {
@@ -96,7 +98,11 @@ struct SettingsView: View {
                     Text("Reset the applications sources, certificates, apps, and general contents.")
                 }
 
-            }
+				Section {
+					DefianceSignPoweredByFooter()
+				}
+				.listRowBackground(Color.clear)
+				.listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 12, trailing: 0))
         }
     }
 }
@@ -112,7 +118,10 @@ extension SettingsView {
 			Button(.localized("Website"), systemImage: "globe") {
 				UIApplication.open(_websiteUrl)
 			}
-			Button(.localized("GitHub Repository"), systemImage: "safari") {
+			Button(.localized("Install without Mac"), systemImage: "safari") {
+				UIApplication.open(DefianceSignConfig.installURL)
+			}
+			Button(.localized("GitHub Repository"), systemImage: "chevron.left.forwardslash.chevron.right") {
 				UIApplication.open(_githubUrl)
 			}
 		}

@@ -19,12 +19,28 @@ struct AboutNyaView: View {
 	var body: some View {
 		NBList(.localized("About")) {
             Section {
-                VStack {
+                VStack(spacing: 14) {
+					ZStack {
+						Circle()
+							.fill(
+								RadialGradient(
+									colors: [
+										Color.defianceAccent.opacity(0.35),
+										Color.defianceAccent.opacity(0.05)
+									],
+									center: .center,
+									startRadius: 4,
+									endRadius: 56
+								)
+							)
+							.frame(width: 112, height: 112)
+
                     Image("DefianceSignLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 88, height: 88)
-                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .frame(width: 80, height: 80)
+                        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+					}
 
                     Text("DefianceSign")
                         .font(.largeTitle)
@@ -44,7 +60,7 @@ struct AboutNyaView: View {
                         Text("Show patch notes").bg()
                     }
                     .font(.footnote)
-                    .padding(.top, 4)
+                    .padding(.top, 2)
                     .tint(.accent)
                 }
             }
@@ -54,6 +70,19 @@ struct AboutNyaView: View {
 			NBSection(.localized("Credits")) {
 				_credit(name: "DefianceSign", desc: "Project", github: "macdirtycow")
 			}
+
+			Section {
+				Button {
+					UIApplication.shared.open(DefianceSignConfig.donationURL)
+				} label: {
+					Label(.localized("Donate"), systemImage: "heart.fill")
+				}
+			}
+
+			Section {
+				DefianceSignPoweredByFooter()
+			}
+			.listRowBackground(Color.clear)
 			
 			NBSection("Special thanks!") {
 				Group {

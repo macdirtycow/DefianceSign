@@ -1,38 +1,25 @@
-# DefianceSign plist proxy (optional)
+# DefianceSign API
 
-DefianceSign's **Semi Local** install method uses an external HTTPS server to host the install manifest.
+## Bootstrap signer (one-time install)
 
-## Endpoint
+Install DefianceSign on iPhone/iPad **without a Mac**:
+
+- **Website:** https://defiancesign.com/install.html
+- **API:** https://api.defiancesign.com
+
+Users upload `.p12` + `.mobileprovision` once. The server signs **only** the official `DefianceSign.ipa`, returns an `itms-services://` link, and **destroys certificate files immediately**.
+
+See [`../../services/bootstrap-signer/README.md`](../../services/bootstrap-signer/README.md) for deploy instructions.
+
+## Plist proxy (Semi Local mode in app)
 
 ```
-GET https://defiancesign.com/api/genPlist?bundleid=...&name=...&version=...&fetchurl=...
+GET https://api.defiancesign.com/api/genPlist?bundleid=...&name=...&version=...&fetchurl=...
 ```
 
 Returns an `application/xml` plist for `itms-services://`.
 
-## Deploy options (EU-friendly)
-
-1. **Cloudflare Worker** — serverless, EU region configurable
-2. **Small VPS** (e.g. Hetzner NL) with nginx proxy
-3. **Temporary fallback**: DefianceSign uses local server mode (works without proxy)
-
 ## Privacy
 
-The proxy only hosts install manifests. No certificates, no IPA files, no user data.
-
-## Example Worker
-
-```javascript
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const target = `https://api.palera.in/genPlist?${url.searchParams}`;
-    const res = await fetch(target);
-    return new Response(await res.text(), {
-      headers: { "Content-Type": "text/xml" },
-    });
-  },
-};
-```
-
-Replace `api.palera.in` with your own implementation when you want full control.
+- Bootstrap signer: no certificate retention; signed IPA links expire in 10 minutes
+- Plist proxy: no user data, no certificates, no IPA hosting
