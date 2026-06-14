@@ -4,9 +4,10 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-SCHEME="${SCHEME:-DefianceSign}"
+SCHEME="${SCHEME:-MapleSign}"
+IPA_NAME="${IPA_NAME:-DefianceSign}"
 OUTPUT_DIR="$ROOT/packages"
-IPA_PATH="$OUTPUT_DIR/${SCHEME}.ipa"
+IPA_PATH="$OUTPUT_DIR/${IPA_NAME}.ipa"
 
 echo "DefianceSign release build"
 echo "  Scheme: $SCHEME"
@@ -23,7 +24,7 @@ git submodule update --init --recursive
 
 echo ""
 echo "Building unsigned IPA (sideload-ready)..."
-make clean "$SCHEME"
+make clean "$IPA_NAME"
 
 if [[ ! -f "$IPA_PATH" ]]; then
   echo "IPA not found at $IPA_PATH"

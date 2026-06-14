@@ -19,8 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ENV BOOTSTRAP_PUBLIC_URL=https://api.defiancesign.com
 ENV BOOTSTRAP_WORK_ROOT=/tmp/defiancesign-bootstrap
-ENV BOOTSTRAP_IPA_URL=https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa
-ENV BOOTSTRAP_APP_VERSION=1.1.3
+ENV BOOTSTRAP_IPA_URL=https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.4/DefianceSign.ipa
+ENV BOOTSTRAP_APP_VERSION=1.1.4
 ENV BOOTSTRAP_CORS_ORIGINS=https://defiancesign.com,https://www.defiancesign.com
 
 RUN mkdir -p /tmp/defiancesign-bootstrap && chmod 700 /tmp/defiancesign-bootstrap

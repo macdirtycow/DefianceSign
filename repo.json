@@ -18,6 +18,15 @@
             "category": "utilities",
             "versions": [
                 {
+                    "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.4/DefianceSign.ipa",
+                    "size": 20706292,
+                    "version": "1.1.4",
+                    "buildVersion": "2",
+                    "date": "2026-06-14T18:00:00+02:00",
+                    "localizedDescription": "Refreshed Settings UI, PayPal donations, web install link, Qadbak/Omiiba credits.",
+                    "minOSVersion": "16.0"
+                },
+                {
                     "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa",
                     "size": 19000000,
                     "version": "1.1.3",
@@ -29,7 +38,7 @@
             ],
             "appPermissions": {},
             "screenshotURLs": [],
-            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa"
+            "downloadURL": "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.4/DefianceSign.ipa"
         }
     ]
 }

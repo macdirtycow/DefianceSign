@@ -103,7 +103,8 @@ struct SettingsView: View {
 				}
 				.listRowBackground(Color.clear)
 				.listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 12, trailing: 0))
-        }
+			}
+		}
     }
 }
 

@@ -6,9 +6,9 @@ IPA_BUNDLE_ID = "net.defiancesign.app"
 APP_NAME = "DefianceSign"
 IPA_DOWNLOAD_URL = os.getenv(
     "BOOTSTRAP_IPA_URL",
-    "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa",
+    "https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.4/DefianceSign.ipa",
 )
-APP_VERSION = os.getenv("BOOTSTRAP_APP_VERSION", "1.1.3")
+APP_VERSION = os.getenv("BOOTSTRAP_APP_VERSION", "1.1.4")
 
 ZSIGN_PATH = os.getenv("ZSIGN_PATH", "zsign")
 PUBLIC_BASE_URL = os.getenv("BOOTSTRAP_PUBLIC_URL", "https://defiancesign.com").rstrip("/")

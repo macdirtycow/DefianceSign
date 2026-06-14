@@ -10,8 +10,8 @@ Environment=BOOTSTRAP_PUBLIC_URL=https://defiancesign.com
 Environment=BOOTSTRAP_WORK_ROOT=/var/lib/defiancesign-bootstrap/work
 Environment=BOOTSTRAP_CORS_ORIGINS=https://defiancesign.com,https://www.defiancesign.com
 Environment=ZSIGN_PATH=/usr/local/bin/zsign
-Environment=BOOTSTRAP_IPA_URL=https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.3/DefianceSign.ipa
-Environment=BOOTSTRAP_APP_VERSION=1.1.3
+Environment=BOOTSTRAP_IPA_URL=https://github.com/macdirtycow/DefianceSign/releases/download/v1.1.4/DefianceSign.ipa
+Environment=BOOTSTRAP_APP_VERSION=1.1.4
 ExecStart=/opt/defiancesign-bootstrap/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8788
 Restart=on-failure
 RestartSec=5

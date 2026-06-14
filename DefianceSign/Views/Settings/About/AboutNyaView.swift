@@ -105,11 +105,11 @@ struct AboutNyaView: View {
             }
 		}
 		.onAppear {
-			// Show patch notes when navigating to this view if they haven't been shown before
-			if !UserDefaults.standard.bool(forKey: "patchNotesShown") {
+			let patchKey = "patchNotesShown_\(Bundle.main.version)"
+			if !UserDefaults.standard.bool(forKey: patchKey) {
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 					_showPatchNotes()
-					UserDefaults.standard.set(true, forKey: "patchNotesShown")
+					UserDefaults.standard.set(true, forKey: patchKey)
 				}
 			}
 		}
@@ -118,7 +118,7 @@ struct AboutNyaView: View {
 	private func _showPatchNotes() {
 		UIAlertController.showAlertWithOk(
 			title: .localized("DefianceSign \(Bundle.main.version)"),
-			message: .localized("DefianceSign is a secure, open-source IPA signer for iPhone and iPad.\n\n- Import your own Apple Developer certificate\n- Sign and install IPA files on-device\n- No bundled certificates or telemetry\n- Based on Feather and Ksign"),
+			message: .localized("What's new in v1.1.4:\n\n- Refreshed Settings header and About screen\n- Donate via PayPal (Settings & About)\n- Install without Mac link in Settings\n- Powered by Qadbak & Omiiba credits\n\nDefianceSign remains open source — import your own certificate and sign IPAs on-device."),
 			isCancel: true,
 			thankYou: true
 		)
