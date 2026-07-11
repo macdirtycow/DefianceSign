@@ -1,9 +1,10 @@
 import subprocess
 import urllib.request
+import zipfile
 from pathlib import Path
 
 from config import IPA_DOWNLOAD_URL, ZSIGN_PATH
-from provision import resolve_signing_bundle_id
+from provision import validate_provisioning_profile
 from security import secure_workspace, wipe_workspace
 
 
@@ -27,6 +28,44 @@ def download_official_ipa(dest: Path) -> None:
     dest.write_bytes(data)
 
 
+def _validate_p12_password(p12_path: Path, password: str) -> None:
+    result = subprocess.run(
+        [
+            "openssl",
+            "pkcs12",
+            "-in",
+            str(p12_path),
+            "-noout",
+            "-passin",
+            f"pass:{password}",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=15,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SignError("Invalid .p12 password or corrupt certificate file")
+
+
+def _verify_signed_ipa(ipa_path: Path) -> None:
+    """Ensure the OTA IPA contains an embedded provisioning profile."""
+    try:
+        with zipfile.ZipFile(ipa_path) as archive:
+            has_profile = any(
+                name.endswith("embedded.mobileprovision")
+                for name in archive.namelist()
+            )
+    except zipfile.BadZipFile as exc:
+        raise SignError("Signed IPA is corrupt") from exc
+
+    if not has_profile:
+        raise SignError(
+            "Signed IPA is missing embedded.mobileprovision. "
+            "The server signer needs an update — try Sideloadly or ESign meanwhile."
+        )
+
+
 def sign_defiancesign_ipa(
     p12_bytes: bytes,
     mobileprovision_bytes: bytes,
@@ -48,8 +87,10 @@ def sign_defiancesign_ipa(
         p12_path.chmod(0o600)
         provision_path.chmod(0o600)
 
+        _validate_p12_password(p12_path, password)
+
         try:
-            bundle_id = resolve_signing_bundle_id(provision_path)
+            bundle_id = validate_provisioning_profile(provision_path)
         except ValueError as exc:
             raise SignError(str(exc)) from exc
 
@@ -77,6 +118,8 @@ def sign_defiancesign_ipa(
 
         if not signed_ipa.is_file() or signed_ipa.stat().st_size < 1_000_000:
             raise SignError("Signed IPA was not produced")
+
+        _verify_signed_ipa(signed_ipa)
 
         unsigned_ipa.unlink(missing_ok=True)
         return signed_ipa, bundle_id

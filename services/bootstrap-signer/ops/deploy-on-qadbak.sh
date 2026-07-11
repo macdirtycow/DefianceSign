@@ -61,17 +61,15 @@ if [[ -d "$REPO_STAGE/website" ]]; then
   chown -R "${USER}:${USER}" "$PUB"
 fi
 
-echo "==> Install zsign"
-if ! command -v zsign &>/dev/null; then
+echo "==> Build/install zsign (always rebuild when source is present)"
+if [[ -d "$REPO_STAGE/Zsign" ]]; then
   apt-get update -qq
   apt-get install -y -qq build-essential libssl-dev libminizip-dev pkg-config git python3 python3-venv python3-pip rsync jq
-  if [[ -d "$REPO_STAGE/Zsign" ]]; then
-    make -C "$REPO_STAGE/Zsign/build/linux" -j"$(nproc)"
-    install -m755 "$REPO_STAGE/Zsign/bin/zsign" /usr/local/bin/zsign
-  else
-    echo "ERR: Zsign source missing at $REPO_STAGE/Zsign" >&2
-    exit 1
-  fi
+  make -C "$REPO_STAGE/Zsign/build/linux" -j"$(nproc)"
+  install -m755 "$REPO_STAGE/Zsign/bin/zsign" /usr/local/bin/zsign
+elif ! command -v zsign &>/dev/null; then
+  echo "ERR: Zsign source missing at $REPO_STAGE/Zsign and no system zsign" >&2
+  exit 1
 fi
 zsign -v | head -1
 

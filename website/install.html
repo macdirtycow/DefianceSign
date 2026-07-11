@@ -68,6 +68,18 @@
       <li>DefianceSign cannot update itself; use this page or Sideloadly for updates.</li>
     </ul>
 
+    <div class="notice notice--subtle">
+      <strong>“Integrity could not be verified”?</strong>
+      <ul>
+        <li>Use an <strong>iOS App Development</strong> or <strong>Ad Hoc</strong> profile — not App Store Distribution.</li>
+        <li>Your iPhone/iPad <strong>UDID must be in the profile</strong> (register it in Apple Developer → Devices).</li>
+        <li>Prefer a profile with App ID <code>net.defiancesign.app</code>, or any <strong>specific</strong> App ID (we re-sign to match).</li>
+        <li>Team wildcard profiles (<code>com.yourteam.*</code>) do <em>not</em> work unless they cover <code>net.defiancesign.app</code>.</li>
+        <li>After install: <strong>Settings → General → VPN &amp; Device Management → Trust</strong> your developer profile.</li>
+        <li>Turn off VPN, use automatic date/time, and try DNS <code>8.8.8.8</code> if verification keeps failing.</li>
+      </ul>
+    </div>
+
     <footer class="site-footer">
       <div class="footer-meta">
         <span class="footer-powered">
