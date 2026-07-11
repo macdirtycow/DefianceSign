@@ -27,6 +27,9 @@ rsync -avz \
   --exclude '__pycache__' \
   "$ROOT/services/bootstrap-signer/" "$VPS:$REMOTE_STAGE/services/bootstrap-signer/"
 rsync -avz \
+  --exclude 'build/linux/.build' \
+  --exclude 'bin/zsign' \
+  --exclude '.git' \
   "$ROOT/Zsign/" "$VPS:$REMOTE_STAGE/Zsign/"
 
 echo "==> Install on VPS (website + API + nginx /api proxy)"

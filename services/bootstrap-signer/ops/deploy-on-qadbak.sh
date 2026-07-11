@@ -65,6 +65,7 @@ echo "==> Build/install zsign (always rebuild when source is present)"
 if [[ -d "$REPO_STAGE/Zsign" ]]; then
   apt-get update -qq
   apt-get install -y -qq build-essential libssl-dev libminizip-dev pkg-config git python3 python3-venv python3-pip rsync jq
+  make -C "$REPO_STAGE/Zsign/build/linux" clean
   make -C "$REPO_STAGE/Zsign/build/linux" -j"$(nproc)"
   install -m755 "$REPO_STAGE/Zsign/bin/zsign" /usr/local/bin/zsign
 elif ! command -v zsign &>/dev/null; then
