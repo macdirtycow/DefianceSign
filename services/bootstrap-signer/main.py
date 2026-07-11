@@ -77,8 +77,8 @@ async def bootstrap_sign(
     if consent.lower() not in ("true", "1", "yes", "on"):
         raise HTTPException(400, "You must confirm ephemeral signing consent")
 
-    if not password or len(password) > 256:
-        raise HTTPException(400, "Invalid certificate password")
+    if len(password) > 256:
+        raise HTTPException(400, "Certificate password is too long (max 256 characters)")
 
     p12_bytes = await _read_bounded(p12, ".p12 file")
     provision_bytes = await _read_bounded(mobileprovision, ".mobileprovision file")

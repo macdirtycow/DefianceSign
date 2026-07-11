@@ -28,26 +28,6 @@ def download_official_ipa(dest: Path) -> None:
     dest.write_bytes(data)
 
 
-def _validate_p12_password(p12_path: Path, password: str) -> None:
-    result = subprocess.run(
-        [
-            "openssl",
-            "pkcs12",
-            "-in",
-            str(p12_path),
-            "-noout",
-            "-passin",
-            f"pass:{password}",
-        ],
-        capture_output=True,
-        text=True,
-        timeout=15,
-        check=False,
-    )
-    if result.returncode != 0:
-        raise SignError("Invalid .p12 password or corrupt certificate file")
-
-
 def _verify_signed_ipa(ipa_path: Path) -> None:
     """Ensure the OTA IPA contains an embedded provisioning profile."""
     try:
@@ -87,7 +67,8 @@ def sign_defiancesign_ipa(
         p12_path.chmod(0o600)
         provision_path.chmod(0o600)
 
-        _validate_p12_password(p12_path, password)
+        if p12_path.stat().st_size < 256:
+            raise SignError("Uploaded .p12 file looks invalid or empty")
 
         try:
             bundle_id = validate_provisioning_profile(provision_path)
@@ -114,6 +95,11 @@ def sign_defiancesign_ipa(
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
         if result.returncode != 0:
             detail = (result.stderr or result.stdout or "zsign failed").strip()
+            if "p12" in detail.lower() or "password" in detail.lower() or "private key" in detail.lower():
+                raise SignError(
+                    "Invalid .p12 password or corrupt certificate file. "
+                    "Re-export from Keychain Access and leave the password blank if you did not set one."
+                )
             raise SignError(f"Signing failed: {detail[:300]}")
 
         if not signed_ipa.is_file() or signed_ipa.stat().st_size < 1_000_000:
