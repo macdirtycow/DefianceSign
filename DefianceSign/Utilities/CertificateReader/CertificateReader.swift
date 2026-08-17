@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Security
 
 class CertificateReader: NSObject {
 	let file: URL?
@@ -48,26 +47,11 @@ class CertificateReader: NSObject {
 	/// CMS-wrapped .mobileprovision files must not be fed raw to PropertyListDecoder:
 	/// the XML parser on iOS 16.1.x aborts on the CMS trailer and on the Apple DTD.
 	static func extractPlist(from data: Data) -> Data? {
-		let payload = cmsContent(from: data) ?? data
-		if payload.starts(with: Data("bplist".utf8)) {
-			return payload
+		if data.starts(with: Data("bplist".utf8)) {
+			return data
 		}
-		guard let xml = xmlPlist(from: payload) else { return nil }
+		guard let xml = xmlPlist(from: data) else { return nil }
 		return binaryPlist(fromXML: xml) ?? xml
-	}
-	
-	private static func cmsContent(from data: Data) -> Data? {
-		var decoder: CMSDecoder?
-		guard CMSDecoderCreate(&decoder) == errSecSuccess, let decoder else { return nil }
-		let updated = data.withUnsafeBytes { buffer -> OSStatus in
-			guard let base = buffer.baseAddress else { return errSecParam }
-			return CMSDecoderUpdateMessage(decoder, base, buffer.count)
-		}
-		guard updated == errSecSuccess else { return nil }
-		guard CMSDecoderFinalizeMessage(decoder) == errSecSuccess else { return nil }
-		var content: CFData?
-		guard CMSDecoderCopyContent(decoder, &content) == errSecSuccess else { return nil }
-		return content as Data?
 	}
 	
 	private static func xmlPlist(from data: Data) -> Data? {
