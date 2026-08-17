@@ -20,7 +20,7 @@ struct CertificatesView: View {
 	@FetchRequest(
 		entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .snappy
+		animation: .easeInOut(duration: 0.25)
 	) private var certificates: FetchedResults<CertificatePair>
 	
 	//
@@ -41,7 +41,7 @@ struct CertificatesView: View {
 					.padding(.horizontal)
 
 				NBGrid {
-					ForEach(Array(certificates.enumerated()), id: \.element.uuid) { index, cert in
+					ForEach(Array(certificates.enumerated()), id: \.element.objectID) { index, cert in
 						_cellButton(for: cert, at: index)
 					}
 				}
@@ -126,7 +126,7 @@ extension CertificatesView {
 				Divider()
 				_actions(for: cert)
 			}
-			.animation(.smooth, value: _selectedCertBinding.wrappedValue)
+			.animation(.easeInOut, value: _selectedCertBinding.wrappedValue)
 		}
 		.buttonStyle(.plain)
 	}

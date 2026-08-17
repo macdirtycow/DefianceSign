@@ -7,14 +7,15 @@
 
 import SwiftUI
 import NimbleViews
+import NimbleExtensions
 
 // MARK: - View
 struct SettingsView: View {
     @AppStorage("feather.selectedCert") private var _storedSelectedCert: Int = 0
     @FetchRequest(
         entity: CertificatePair.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-        animation: .snappy
+		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
+		animation: .easeInOut(duration: 0.25)
     ) private var _certificates: FetchedResults<CertificatePair>
     
     private var selectedCertificate: CertificatePair? {
@@ -54,9 +55,16 @@ struct SettingsView: View {
 				}
                 
                 NBSection(.localized("Certificates")) {
-                    
                     if let cert = selectedCertificate {
-                        CertificatesCellView(cert: cert)
+						VStack(alignment: .leading, spacing: 4) {
+							Text(cert.nickname ?? .localized("Certificate"))
+								.font(.body)
+							if let expiration = cert.expiration {
+								Text(expiration.expirationInfo().formatted)
+									.font(.footnote)
+									.foregroundColor(expiration.expirationInfo().color)
+							}
+						}
                     } else {
                         Text(.localized("No Certificate"))
                             .font(.footnote)

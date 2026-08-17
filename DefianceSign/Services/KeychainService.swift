@@ -78,18 +78,20 @@ extension Storage {
 	}
 
 	func migrateCertificatePasswordsIfNeeded() {
-		let request = CertificatePair.fetchRequest()
-		guard let certificates = try? context.fetch(request) else { return }
+		performOnContext {
+			let request = CertificatePair.fetchRequest()
+			guard let certificates = try? self.context.fetch(request) else { return }
 
-		for cert in certificates {
-			guard let uuid = cert.uuid else { continue }
+			for cert in certificates {
+				guard let uuid = cert.uuid else { continue }
 
-			if KeychainService.loadPassword(for: uuid) != nil {
-				continue
-			}
+				if KeychainService.loadPassword(for: uuid) != nil {
+					continue
+				}
 
-			if let legacyPassword = cert.password {
-				KeychainService.savePassword(legacyPassword, for: uuid)
+				if let legacyPassword = cert.password {
+					KeychainService.savePassword(legacyPassword, for: uuid)
+				}
 			}
 		}
 	}

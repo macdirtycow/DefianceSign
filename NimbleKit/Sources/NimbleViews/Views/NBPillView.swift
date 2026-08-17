@@ -41,7 +41,12 @@ public struct NBPillView: View {
 		}
 		.frame(maxWidth: .infinity)
 		.padding(.vertical, 10)
-		.background(
+		.background(pillBackground(radii: radii))
+	}
+	
+	@ViewBuilder
+	private func pillBackground(radii: (topLeading: CGFloat, bottomLeading: CGFloat, bottomTrailing: CGFloat, topTrailing: CGFloat)) -> some View {
+		if #available(iOS 16.4, *) {
 			UnevenRoundedRectangle(
 				cornerRadii: .init(
 					topLeading: radii.topLeading,
@@ -51,8 +56,11 @@ public struct NBPillView: View {
 				),
 				style: .continuous
 			)
-            .fill(color.opacity(0.1))
-		)
+			.fill(color.opacity(0.1))
+		} else {
+			RoundedRectangle(cornerRadius: 10, style: .circular)
+				.fill(color.opacity(0.1))
+		}
 	}
 	
 	public enum PillPosition {
@@ -68,20 +76,20 @@ public struct NBPillView: View {
 		}
 		
 		public var cornerRadii: (topLeading: CGFloat, bottomLeading: CGFloat, bottomTrailing: CGFloat, topTrailing: CGFloat) {
-            if #available(iOS 26.0, *) {
-                return (16, 16, 16, 16)
-            } else {
-                switch self {
-                case .single:
-                    return (10, 10, 10, 10)
-                case .first:
-                    return (10, 10, 5, 5)
-                case .middle:
-                    return (5, 5, 5, 5)
-                case .last:
-                    return (5, 5, 10, 10)
-                }
-            }
+			if #available(iOS 26.0, *) {
+				return (16, 16, 16, 16)
+			} else {
+				switch self {
+				case .single:
+					return (10, 10, 10, 10)
+				case .first:
+					return (10, 10, 5, 5)
+				case .middle:
+					return (5, 5, 5, 5)
+				case .last:
+					return (5, 5, 10, 10)
+				}
+			}
 		}
 	}
 }

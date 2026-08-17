@@ -76,7 +76,8 @@ struct CertificatesAddView: View {
 					allowedContentTypes: [UTType.p12],
 					onDocumentsPicked: { urls in
 						guard let selectedFileURL = urls.first else { return }
-						self._p12URL = selectedFileURL
+						self._p12URL = Self._persistImport(selectedFileURL, ext: "p12")
+						self._p12Data = self._p12URL.flatMap { try? Data(contentsOf: $0) }
 						self._isFromDefianceSign = false
 					}
 				)
@@ -86,7 +87,8 @@ struct CertificatesAddView: View {
 					allowedContentTypes: [UTType.mobileProvision],
 					onDocumentsPicked: { urls in
 						guard let selectedFileURL = urls.first else { return }
-						self._provisionURL = selectedFileURL
+						self._provisionURL = Self._persistImport(selectedFileURL, ext: "mobileprovision")
+						self._provisionData = self._provisionURL.flatMap { try? Data(contentsOf: $0) }
 						self._isFromDefianceSign = false
 					}
 				)
@@ -130,23 +132,54 @@ extension CertificatesAddView {
 // MARK: - Extension: View (import)
 extension CertificatesAddView {
 	private func _saveCertificate() {
-        guard
-            let p12URL = _p12URL,
-            let provisionURL = _provisionURL,
-            FR.checkPasswordForCertificate(for: p12URL, with: _p12Password, using: provisionURL)
-        else {
-            _isPasswordAlertPresenting = true
-            return
-        }
-        
-        FR.handleCertificateFiles(
-            p12URL: p12URL,
-            provisionURL: provisionURL,
-            p12Password: _p12Password,
-            certificateName: _certificateName
-        ) { _ in
-            dismiss()
-        }
+		guard
+			let p12URL = _p12URL,
+			let provisionURL = _provisionURL
+		else {
+			_errorMessage = .localized("Please import both a .p12 certificate and a .mobileprovision file.")
+			_isErrorPresenting = true
+			return
+		}
+		
+		guard FR.checkPasswordForCertificate(for: p12URL, with: _p12Password, using: provisionURL) else {
+			_isPasswordAlertPresenting = true
+			return
+		}
+		
+		FR.handleCertificateFiles(
+			p12URL: p12URL,
+			provisionURL: provisionURL,
+			p12Password: _p12Password,
+			certificateName: _certificateName
+		) { error in
+			if let error {
+				_errorMessage = error.localizedDescription
+				_isErrorPresenting = true
+				return
+			}
+			dismiss()
+		}
+	}
+	
+	private static func _persistImport(_ url: URL, ext: String) -> URL? {
+		let dir = FileManager.default.temporaryDirectory
+			.appendingPathComponent("cert-import-\(UUID().uuidString)", isDirectory: true)
+		try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+		let dest = dir.appendingPathComponent("import.\(ext)")
+		do {
+			let data = try Data(contentsOf: url)
+			guard !data.isEmpty else { return nil }
+			try data.write(to: dest)
+			return dest
+		} catch {
+			do {
+				try FileManager.default.copyItem(at: url, to: dest)
+				return dest
+			} catch {
+				print("Certificate import copy failed: \(error)")
+				return nil
+			}
+		}
 	}
 }
 

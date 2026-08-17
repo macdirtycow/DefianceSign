@@ -31,20 +31,37 @@ class CertificateReader: NSObject {
 	
 	// Static method to parse certificate data directly
 	static func parseData(_ data: Data) -> Certificate? {
+		guard let plistData = extractPlist(from: data) else {
+			print("XML start not found")
+			return nil
+		}
+		
 		do {
-			guard let xmlRange = data.range(of: Data("<?xml".utf8)) else {
-				print("XML start not found")
-				return nil
-			}
-			
-			let xmlData = data.subdata(in: xmlRange.lowerBound..<data.endIndex)
-			
 			let decoder = PropertyListDecoder()
-			let certificate = try decoder.decode(Certificate.self, from: xmlData)
-			return certificate
+			return try decoder.decode(Certificate.self, from: plistData)
 		} catch {
 			print("Error extracting certificate: \(error.localizedDescription)")
 			return nil
 		}
+	}
+	
+	/// CMS-wrapped .mobileprovision files have a binary signature after `</plist>`.
+	/// Feeding that trailer to PropertyListDecoder crashes the XML parser on iOS 16.1.x.
+	static func extractPlist(from data: Data) -> Data? {
+		let xmlStart = Data("<?xml".utf8)
+		let xmlEnd = Data("</plist>".utf8)
+		
+		if let start = data.range(of: xmlStart) {
+			if let end = data.range(of: xmlEnd, in: start.lowerBound..<data.endIndex) {
+				return data.subdata(in: start.lowerBound..<end.upperBound)
+			}
+			return data.subdata(in: start.lowerBound..<data.endIndex)
+		}
+		
+		if data.starts(with: Data("bplist".utf8)) {
+			return data
+		}
+		
+		return nil
 	}
 }

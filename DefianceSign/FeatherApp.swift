@@ -36,8 +36,8 @@ struct FeatherApp: App {
 					.onOpenURL(perform: _handleURL)
 					.transition(.move(edge: .top).combined(with: .opacity))
 			}
-			.animation(.smooth, value: downloadManager.manualDownloads.description)
-            .animation(.smooth, value: extractManager.extractItems.description)
+			.animation(.easeInOut, value: downloadManager.manualDownloads.description)
+            .animation(.easeInOut, value: extractManager.extractItems.description)
 			.onReceive(accentColorManager.objectWillChange) { _ in
 				accentColorManager.updateGlobalTintColor()
 			}

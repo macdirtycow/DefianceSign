@@ -55,20 +55,20 @@ final class ZsignHandler {
 			throw SigningFileHandlerError.invalidCertificatePassword
 		}
 		
-        let _ = Zsign.sign(
-            appPath: _appUrl.relativePath,
-            provisionPath: Storage.shared.getFile(.provision, from: cert)?.path ?? "",
-            p12Path: Storage.shared.getFile(.certificate, from: cert)?.path ?? "",
-            p12Password: Storage.shared.certificatePassword(for: cert),
-            entitlementsPath: _options.appEntitlementsFile?.path ?? "",
-            customIdentifier: _options.appIdentifier ?? "",
-            customName: _options.appName ?? "",
-            customVersion: _options.appVersion ?? "",
-            removeProvision: !_options.removeProvisioning,
-            completion: { _, error in
-                self.hadError = error
-            }
-        )
+		let _ = Zsign.sign(
+			appPath: _appUrl.relativePath,
+			provisionPath: provisionURL.path,
+			p12Path: p12URL.path,
+			p12Password: password,
+			entitlementsPath: _options.appEntitlementsFile?.path ?? "",
+			customIdentifier: _options.appIdentifier ?? "",
+			customName: _options.appName ?? "",
+			customVersion: _options.appVersion ?? "",
+			removeProvision: false,
+			completion: { _, error in
+				self.hadError = error
+			}
+		)
     }
 	
 	func adhocSign() async throws {

@@ -32,7 +32,7 @@ struct SigningView: View {
 	@FetchRequest(
 		entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .snappy
+		animation: .easeInOut(duration: 0.25)
 	) private var certificates: FetchedResults<CertificatePair>
 	
 	private func _selectedCert() -> CertificatePair? {
@@ -124,18 +124,10 @@ struct SigningView: View {
 					}
 				}
 			}
-			.animation(.smooth, value: _isSigning)
+			.animation(.easeInOut, value: _isSigning)
 		}
 		.onAppear {
-			// ppq protection
-			if
-				_optionsManager.options.ppqProtection,
-				let identifier = app.identifier,
-				let cert = _selectedCert(),
-				cert.ppQCheck
-			{
-				_temporaryOptions.appIdentifier = "\(identifier).\(_optionsManager.options.ppqString)"
-			}
+			_applyCertificateBundleIDIfNeeded()
 			
 			if
 				let currentBundleId = app.identifier,
@@ -321,7 +313,6 @@ extension SigningView {
 					actions: [ok]
 				)
 			} else {
-				// Remove app after signed option thing
 				if _temporaryOptions.removeApp && !app.isSigned {
 					Storage.shared.deleteApp(for: app)
 				}
@@ -337,5 +328,38 @@ extension SigningView {
 				dismiss()
 			}
 		}
+	}
+	
+	private func _applyCertificateBundleIDIfNeeded() {
+		let currentId = _temporaryOptions.appIdentifier ?? app.identifier
+		
+		if let certAppId = _getCertAppID(), !_profileCovers(currentId, certAppId: certAppId) {
+			if !certAppId.contains("*") {
+				_temporaryOptions.appIdentifier = certAppId
+			}
+		}
+		
+		guard
+			_optionsManager.options.ppqProtection,
+			let identifier = currentId ?? app.identifier,
+			let cert = _selectedCert(),
+			cert.ppQCheck,
+			let certAppId = _getCertAppID(),
+			certAppId == "*" || certAppId.hasSuffix(".*")
+		else {
+			return
+		}
+		
+		_temporaryOptions.appIdentifier = "\(identifier).\(_optionsManager.options.ppqString)"
+	}
+	
+	private func _profileCovers(_ bundleId: String?, certAppId: String) -> Bool {
+		guard let bundleId, !bundleId.isEmpty else { return false }
+		if certAppId == "*" { return true }
+		if certAppId.hasSuffix(".*") {
+			let prefix = String(certAppId.dropLast(2))
+			return bundleId == prefix || bundleId.hasPrefix(prefix + ".")
+		}
+		return bundleId == certAppId
 	}
 }

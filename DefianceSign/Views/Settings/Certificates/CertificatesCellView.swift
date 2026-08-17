@@ -16,8 +16,7 @@ struct CertificatesCellView: View {
 	
 	// MARK: Body
 	var body: some View {
-		VStack(spacing: 6) {
-			
+		VStack(alignment: .leading, spacing: 6) {
 			NBTitleWithSubtitleView(
 				title: cert.nickname ?? data?.Name ?? .localized("Unknown"),
 				subtitle: data?.AppIDName ?? .localized("Unknown")
@@ -25,13 +24,10 @@ struct CertificatesCellView: View {
 			
 			_certInfoPill(data: cert)
 		}
-		.frame(height: 80)
-		.contentTransition(.opacity)
 		.frame(maxWidth: .infinity, alignment: .leading)
+		.fixedSize(horizontal: false, vertical: true)
 		.onAppear {
-			withAnimation {
-				data = Storage.shared.getProvisionFileDecoded(for: cert)
-			}
+			data = Storage.shared.getProvisionFileDecoded(for: cert)
 		}
 	}
 }
@@ -42,8 +38,7 @@ extension CertificatesCellView {
 	private func _certInfoPill(data: CertificatePair) -> some View {
 		let pillItems = _buildPills(from: data)
 		HStack(spacing: 6) {
-			ForEach(pillItems.indices, id: \.hashValue) { index in
-				let pill = pillItems[index]
+			ForEach(Array(pillItems.enumerated()), id: \.offset) { index, pill in
 				NBPillView(
 					title: pill.title,
 					icon: pill.icon,
@@ -61,13 +56,12 @@ extension CertificatesCellView {
 		if cert.ppQCheck == true {
 			pills.append(NBPillItem(title: "PPQCheck", icon: "checkmark.shield", color: .orange))
 		}
-        
-        if cert.revoked {
-            pills.append(NBPillItem(title: "Revoked", icon: "xmark.octagon", color: .red))
-        }
-        else {
-            pills.append(NBPillItem(title: "Valid", icon: "checkmark.circle", color: .green))
-        }
+		
+		if cert.revoked {
+			pills.append(NBPillItem(title: "Revoked", icon: "xmark.octagon", color: .red))
+		} else {
+			pills.append(NBPillItem(title: "Valid", icon: "checkmark.circle", color: .green))
+		}
 		
 		if let info = cert.expiration?.expirationInfo() {
 			pills.append(NBPillItem(
