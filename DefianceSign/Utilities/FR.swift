@@ -7,6 +7,7 @@
 
 import Foundation.NSURL
 import UIKit.UIImage
+import Security
 import Zsign
 import NimbleJSON
 import AltSourceKit
@@ -106,6 +107,15 @@ enum FR {
 		with password: String,
 		using provision: URL
 	) -> Bool {
+		if _pkcs12PasswordIsValid(at: key, password: password) {
+			return true
+		}
+		
+		guard FileManager.default.fileExists(atPath: key.path),
+			  FileManager.default.fileExists(atPath: provision.path) else {
+			return false
+		}
+		
 		defer {
 			password_check_fix_WHAT_THE_FUCK_free(provision.path)
 		}
@@ -117,6 +127,13 @@ enum FR {
 		}
 		
 		return true
+	}
+	
+	private static func _pkcs12PasswordIsValid(at url: URL, password: String) -> Bool {
+		guard let data = try? Data(contentsOf: url), data.count > 32 else { return false }
+		let options = [kSecImportExportPassphrase as String: password] as CFDictionary
+		var items: CFArray?
+		return SecPKCS12Import(data as CFData, options, &items) == errSecSuccess
 	}
 	
 	static func checkPasswordForCertificateData(

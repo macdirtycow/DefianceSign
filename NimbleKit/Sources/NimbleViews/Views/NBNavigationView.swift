@@ -23,10 +23,19 @@ public struct NBNavigationView<Content>: View where Content: View {
 	}
 	
 	public var body: some View {
-		NavigationStack {
-			_content
-				.navigationTitle(_title)
-				.navigationBarTitleDisplayMode(_mode)
+		if #available(iOS 16.4, *) {
+			NavigationStack {
+				_content
+					.navigationTitle(_title)
+					.navigationBarTitleDisplayMode(_mode)
+			}
+		} else {
+			NavigationView {
+				_content
+					.navigationTitle(_title)
+					.navigationBarTitleDisplayMode(_mode)
+			}
+			.navigationViewStyle(.stack)
 		}
 	}
 }

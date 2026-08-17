@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NimbleExtensions
 
 public struct NBSection<Content, Footer>: View
 where 	Content: View,
@@ -65,7 +66,7 @@ where 	Content: View,
                             Text(_headerTextSecondary)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
-                                .contentTransition(.numericText())
+                                .compatNumericContentTransition()
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4.4)
                                 .background(Color(uiColor: .quaternarySystemFill))
@@ -75,7 +76,7 @@ where 	Content: View,
                             Text(_headerTextSecondary)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
-                                .contentTransition(.numericText())
+                                .compatNumericContentTransition()
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4.4)
                                 .background(Color(uiColor: .quaternarySystemFill))
