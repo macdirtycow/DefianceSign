@@ -15,7 +15,7 @@ struct SettingsView: View {
     @FetchRequest(
         entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .easeInOut(duration: 0.25)
+		animation: nil
     ) private var _certificates: FetchedResults<CertificatePair>
     
     private var selectedCertificate: CertificatePair? {

@@ -33,11 +33,7 @@ final class CertificateFileHandler: NSObject {
 		
 		self._p12Data = try? Data(contentsOf: key)
 		self._provisionData = try? Data(contentsOf: provision)
-		if let provisionData = _provisionData {
-			_certPair = CertificateReader.parseData(provisionData)
-		} else {
-			_certPair = CertificateReader(provision).decoded
-		}
+		self._certPair = nil
 		
 		super.init()
 	}
@@ -69,6 +65,12 @@ final class CertificateFileHandler: NSObject {
 	}
 	
 	func addToDatabase() async throws {
+		if _certPair == nil, let provisionData = _provisionData {
+			_certPair = await Task { @MainActor in
+				CertificateReader.parseData(provisionData)
+			}.value
+		}
+		
 		try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
 			Storage.shared.addCertificate(
 				uuid: _uuid,

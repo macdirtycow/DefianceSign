@@ -20,7 +20,7 @@ struct CertificatesView: View {
 	@FetchRequest(
 		entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .easeInOut(duration: 0.25)
+		animation: nil
 	) private var certificates: FetchedResults<CertificatePair>
 	
 	//
@@ -126,7 +126,6 @@ extension CertificatesView {
 				Divider()
 				_actions(for: cert)
 			}
-			.animation(.easeInOut, value: _selectedCertBinding.wrappedValue)
 		}
 		.buttonStyle(.plain)
 	}

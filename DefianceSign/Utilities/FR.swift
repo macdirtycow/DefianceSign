@@ -8,7 +8,6 @@
 import Foundation.NSURL
 import UIKit.UIImage
 import Security
-import Zsign
 import NimbleJSON
 import AltSourceKit
 import IDeviceSwift
@@ -107,33 +106,28 @@ enum FR {
 		with password: String,
 		using provision: URL
 	) -> Bool {
-		if _pkcs12PasswordIsValid(at: key, password: password) {
-			return true
-		}
-		
-		guard FileManager.default.fileExists(atPath: key.path),
-			  FileManager.default.fileExists(atPath: provision.path) else {
-			return false
-		}
-		
-		defer {
-			password_check_fix_WHAT_THE_FUCK_free(provision.path)
-		}
-		
-		password_check_fix_WHAT_THE_FUCK(provision.path)
-		
-		if (!p12_password_check(key.path, password)) {
-			return false
-		}
-		
-		return true
+		guard FileManager.default.fileExists(atPath: key.path) else { return false }
+		return _pkcs12PasswordIsValid(at: key, password: password)
 	}
 	
 	private static func _pkcs12PasswordIsValid(at url: URL, password: String) -> Bool {
 		guard let data = try? Data(contentsOf: url), data.count > 32 else { return false }
+		// Never fall back to OpenSSL's p12_password_check — OPENSSL_assert aborts the process
+		// on iOS 16.1.x for ordinary Keychain-exported .p12 files.
+		if _secPKCS12Unlocks(data, password: password) {
+			return true
+		}
+		if !password.isEmpty, _secPKCS12Unlocks(data, password: "") {
+			return true
+		}
+		return false
+	}
+	
+	private static func _secPKCS12Unlocks(_ data: Data, password: String) -> Bool {
 		let options = [kSecImportExportPassphrase as String: password] as CFDictionary
 		var items: CFArray?
-		return SecPKCS12Import(data as CFData, options, &items) == errSecSuccess
+		let status = SecPKCS12Import(data as CFData, options, &items)
+		return status == errSecSuccess || status == errSecDuplicateItem
 	}
 	
 	static func checkPasswordForCertificateData(

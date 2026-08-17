@@ -32,7 +32,7 @@ struct SigningView: View {
 	@FetchRequest(
 		entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .easeInOut(duration: 0.25)
+		animation: nil
 	) private var certificates: FetchedResults<CertificatePair>
 	
 	private func _selectedCert() -> CertificatePair? {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import NimbleExtensions
 
 struct DownloadHeaderView: View {
 	@ObservedObject var downloadManager: DownloadManager
@@ -57,11 +58,11 @@ struct DownloadItemView: View {
 			
 			HStack {
 				Text(verbatim: "\(Int(overallProgress * 100))%")
-					.contentTransition(.numericText())
+					.compatNumericContentTransition()
 				Spacer()
 				if totalBytes > 0 {
 					Text(verbatim: "\(formatByteCount(bytesDownloaded)) / \(formatByteCount(totalBytes))")
-						.contentTransition(.numericText())
+						.compatNumericContentTransition()
 				}
 			}
 			.font(.caption)

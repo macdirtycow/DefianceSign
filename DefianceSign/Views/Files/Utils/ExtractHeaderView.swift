@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NimbleExtensions
 
 struct ExtractHeaderView: View {
 	@ObservedObject var extractManager: ExtractManager
@@ -51,7 +52,7 @@ private struct ExtractProgressItemView: View {
 
 			HStack {
 				Text(verbatim: "\(Int(item.progress * 100))%")
-					.contentTransition(.numericText())
+					.compatNumericContentTransition()
 				Spacer()
 			}
 			.font(.caption)

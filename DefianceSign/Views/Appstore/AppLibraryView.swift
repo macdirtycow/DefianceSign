@@ -16,7 +16,7 @@ struct AppLibraryView: View {
 	@FetchRequest(
 		entity: AltSource.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \AltSource.name, ascending: true)],
-		animation: .snappy
+		animation: .easeInOut(duration: 0.25)
 	) private var _sources: FetchedResults<AltSource>
 
 	private var _loadedAppCount: Int {

@@ -20,7 +20,7 @@ struct BulkSigningView: View {
 	@FetchRequest(
 		entity: CertificatePair.entity(),
 		sortDescriptors: [NSSortDescriptor(keyPath: \CertificatePair.date, ascending: false)],
-		animation: .snappy
+		animation: nil
 	) private var certificates: FetchedResults<CertificatePair>
 	
 	private func _selectedCert() -> CertificatePair? {
