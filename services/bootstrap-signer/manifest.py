@@ -1,7 +1,14 @@
 from config import APP_NAME, APP_VERSION
 
 
-def build_manifest_xml(ipa_url: str, bundle_id: str) -> str:
+def build_manifest_xml(
+    ipa_url: str,
+    bundle_id: str,
+    title: str | None = None,
+    version: str | None = None,
+) -> str:
+    app_title = title or APP_NAME
+    app_version = version or APP_VERSION
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -23,11 +30,11 @@ def build_manifest_xml(ipa_url: str, bundle_id: str) -> str:
         <key>bundle-identifier</key>
         <string>{bundle_id}</string>
         <key>bundle-version</key>
-        <string>{APP_VERSION}</string>
+        <string>{_xml_escape(app_version)}</string>
         <key>kind</key>
         <string>software</string>
         <key>title</key>
-        <string>{APP_NAME}</string>
+        <string>{_xml_escape(app_title)}</string>
       </dict>
     </dict>
   </array>

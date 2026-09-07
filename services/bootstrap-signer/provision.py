@@ -6,7 +6,7 @@ from pathlib import Path
 from config import IPA_BUNDLE_ID
 
 
-def validate_provisioning_profile(path: Path) -> str:
+def validate_provisioning_profile(path: Path, ipa_bundle_id: str | None = None) -> str:
     """
     Validate a Development or Ad Hoc profile and return the bundle ID for signing.
     Raises ValueError with a user-facing message when install would fail on device.
@@ -23,7 +23,7 @@ def validate_provisioning_profile(path: Path) -> str:
         raise ValueError("Could not read App ID from provisioning profile")
 
     _validate_installable_profile(data)
-    return _resolve_bundle_id(raw_app_id)
+    return _resolve_bundle_id(raw_app_id, ipa_bundle_id)
 
 
 def resolve_signing_bundle_id(path: Path) -> str:
@@ -31,9 +31,17 @@ def resolve_signing_bundle_id(path: Path) -> str:
     return validate_provisioning_profile(path)
 
 
-def _resolve_bundle_id(raw_app_id: str) -> str:
+def _resolve_bundle_id(raw_app_id: str, ipa_bundle_id: str | None = None) -> str:
     if raw_app_id == "*" or raw_app_id.endswith(".*"):
         prefix = raw_app_id[:-2] if raw_app_id.endswith(".*") else ""
+        if ipa_bundle_id:
+            if prefix and not (
+                ipa_bundle_id == prefix or ipa_bundle_id.startswith(prefix + ".")
+            ):
+                raise ValueError(
+                    f"Wildcard profile ({raw_app_id}) does not cover {ipa_bundle_id}."
+                )
+            return ipa_bundle_id
         if prefix and not IPA_BUNDLE_ID.startswith(prefix + "."):
             raise ValueError(
                 f"Wildcard profile ({raw_app_id}) does not cover {IPA_BUNDLE_ID}. "

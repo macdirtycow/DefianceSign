@@ -29,6 +29,25 @@ This uploads:
 
 Then open **https://defiancesign.com/install.html** in Safari on iPad.
 
+### Update the app IPA (from your Mac)
+
+```bash
+cd ~/Projects/MapleSign
+bash scripts/publish-ipa.sh
+# Or: IPA=~/Downloads/DefianceSign.ipa bash scripts/publish-ipa.sh
+```
+
+This builds a new unsigned IPA (or downloads the GitHub Actions beta if Xcode is missing), uploads it to the VPS, and points the web installer at it. Direct download: https://defiancesign.com/DefianceSign.ipa
+
+### Sign any IPA from the website
+
+```bash
+cd ~/Projects/MapleSign
+bash scripts/deploy-web-signer.sh
+```
+
+https://defiancesign.com/install.html then accepts an optional `.ipa` upload (AltStore, SideStore, ESign, …). After signing you can download the IPA or install it in Safari.
+
 ### Manual website-only upload
 
 Upload `packages/defiancesign-website.zip` to `public_html` if you only need the static pages first.

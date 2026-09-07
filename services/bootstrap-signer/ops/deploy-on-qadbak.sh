@@ -79,6 +79,15 @@ install -d -m 700 "$STAGE" /var/lib/defiancesign-bootstrap/work
 rsync -a --delete "$REPO_STAGE/services/bootstrap-signer/" "$STAGE/app/"
 cp "$REPO_STAGE/services/bootstrap-signer/ops/defiancesign-bootstrap.service" /etc/systemd/system/
 
+if [[ -f "$REPO_STAGE/packages/DefianceSign.ipa" ]]; then
+  echo "==> Install uploaded DefianceSign.ipa"
+  install -m 644 "$REPO_STAGE/packages/DefianceSign.ipa" "$STAGE/DefianceSign.ipa"
+  if [[ -d "$PUB" ]]; then
+    install -m 644 "$REPO_STAGE/packages/DefianceSign.ipa" "$PUB/DefianceSign.ipa"
+    chown "${USER}:${USER}" "$PUB/DefianceSign.ipa"
+  fi
+fi
+
 python3 -m venv "$STAGE/venv"
 "$STAGE/venv/bin/pip" install -q -r "$STAGE/app/requirements.txt"
 
